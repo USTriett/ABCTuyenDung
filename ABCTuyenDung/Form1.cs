@@ -20,5 +20,15 @@ namespace ABCTuyenDung
         {
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            pnUC.Controls.Clear();
+            XemDNGanHetHan uc = new XemDNGanHetHan();
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+            uc.Focus();
+            pnUC.Controls.Add(uc);
+        }
     }
 }
