@@ -109,11 +109,43 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BusDkutHsbc.cs" />
+    <Compile Include="BUS\BusDoanhNghiep.cs" />
+    <Compile Include="BUS\BusHinhThuc.cs" />
+    <Compile Include="BUS\BusHoaDon.cs" />
+    <Compile Include="BUS\BusHoSoBangCap.cs" />
+    <Compile Include="BUS\BusNhanVien.cs" />
+    <Compile Include="BUS\BusPhieuDangKyUngTuyen.cs" />
+    <Compile Include="BUS\BusPhieuDangTuyen.cs" />
+    <Compile Include="BUS\BusPhieuDangKyDoanhNghiep.cs" />
+    <Compile Include="BUS\BusPhieuDangKyUngVien.cs" />
+    <Compile Include="BUS\BusUngVien.cs" />
     <Compile Include="CTY_ABCDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CTY_ABCDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DAOs\DAODoanhNghiep.cs" />
+    <Compile Include="DAOs\DAOHinhThuc.cs" />
+    <Compile Include="DAOs\DAOHoaDon.cs" />
+    <Compile Include="DAOs\DAOHoSoBangCap.cs" />
+    <Compile Include="DAOs\DAODkutHsbc.cs" />
+    <Compile Include="DAOs\DAONhanVien.cs" />
+    <Compile Include="DAOs\DAOPhieuDangKyDoanhNghiep.cs" />
+    <Compile Include="DAOs\DAOPhieuDangKyUngVien.cs" />
+    <Compile Include="DAOs\DAOPhieuDangTuyen.cs" />
+    <Compile Include="DAOs\DAOUngVien.cs" />
+    <Compile Include="DAOs\DAOPhieuDangKyUngTuyen.cs" />
+    <Compile Include="DTOs\DTODkutHsbc.cs" />
+    <Compile Include="DTOs\DTODoanhNghiep.cs" />
+    <Compile Include="DTOs\DTOHinhThuc.cs" />
+    <Compile Include="DTOs\DTOHoaDon.cs" />
+    <Compile Include="DTOs\DTOHoSoBangCap.cs" />
+    <Compile Include="DTOs\DTONhanVien.cs" />
+    <Compile Include="DTOs\DTOPhieuDangKyUngVien.cs" />
+    <Compile Include="DTOs\DTOPhieuDangTuyen.cs" />
+    <Compile Include="DTOs\DTOUngVien.cs" />
+    <Compile Include="DTOs\DTOPhieuDangKyUngTuyen.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +186,7 @@
     <None Include="CTY_ABCDataSet.xss">
       <DependentUpon>CTY_ABCDataSet.xsd</DependentUpon>
     </None>
+    <Compile Include="DTOs\DTOPhieuDangKyDoanhNghiep.cs" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -168,5 +201,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
