@@ -1,0 +1,11 @@
+C:\Users\Shyr\source\repos\dangkythanhvienungvien\dangkythanhvienungvien\obj\Debug\dangkythanhvienungvien.csproj.AssemblyReference.cache
+C:\Users\Shyr\source\repos\dangkythanhvienungvien\dangkythanhvienungvien\obj\Debug\dangkythanhvienungvien.csproj.SuggestedBindingRedirects.cache
+C:\Users\Shyr\source\repos\dangkythanhvienungvien\dangkythanhvienungvien\obj\Debug\dangkythanhvienungvien.Form1.resources
+C:\Users\Shyr\source\repos\dangkythanhvienungvien\dangkythanhvienungvien\obj\Debug\dangkythanhvienungvien.Properties.Resources.resources
+C:\Users\Shyr\source\repos\dangkythanhvienungvien\dangkythanhvienungvien\obj\Debug\dangkythanhvienungvien.csproj.GenerateResource.cache
+C:\Users\Shyr\source\repos\dangkythanhvienungvien\dangkythanhvienungvien\obj\Debug\dangkythanhvienungvien.csproj.CoreCompileInputs.cache
+C:\Users\Shyr\source\repos\dangkythanhvienungvien\dangkythanhvienungvien\bin\Debug\dangkythanhvienungvien.exe.config
+C:\Users\Shyr\source\repos\dangkythanhvienungvien\dangkythanhvienungvien\bin\Debug\dangkythanhvienungvien.exe
+C:\Users\Shyr\source\repos\dangkythanhvienungvien\dangkythanhvienungvien\bin\Debug\dangkythanhvienungvien.pdb
+C:\Users\Shyr\source\repos\dangkythanhvienungvien\dangkythanhvienungvien\obj\Debug\dangkythanhvienungvien.exe
+C:\Users\Shyr\source\repos\dangkythanhvienungvien\dangkythanhvienungvien\obj\Debug\dangkythanhvienungvien.pdb
