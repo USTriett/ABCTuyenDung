@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
@@ -125,6 +128,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CTY_ABCDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GUIDangKyThanhVienDoanhNghiep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIDangKyThanhVienDoanhNghiep.Designer.cs">
+      <DependentUpon>GUIDangKyThanhVienDoanhNghiep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIDangNhap.Designer.cs">
+      <DependentUpon>GUIDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAOs\DAODoanhNghiep.cs" />
     <Compile Include="DAOs\DAOHinhThuc.cs" />
     <Compile Include="DAOs\DAOHoaDon.cs" />
@@ -160,6 +175,12 @@
     <Compile Include="XemDNGanHetHan.Designer.cs">
       <DependentUpon>XemDNGanHetHan.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUIDangKyThanhVienDoanhNghiep.resx">
+      <DependentUpon>GUIDangKyThanhVienDoanhNghiep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIDangNhap.resx">
+      <DependentUpon>GUIDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +222,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="image\dang-ky-dn.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="image\dang-nhap.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
