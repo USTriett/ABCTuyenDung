@@ -38,5 +38,7 @@ namespace ABCTuyenDung
             panel1.Controls.Add(_endDate);
 
         }
+
+        
     }
 }
