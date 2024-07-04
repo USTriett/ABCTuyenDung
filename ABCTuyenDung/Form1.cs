@@ -39,6 +39,14 @@ namespace ABCTuyenDung
 
         }
 
-        
+        private void mainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

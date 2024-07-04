@@ -154,7 +154,7 @@
             this.tbDS.ThemeStyle.RowsStyle.Height = 33;
             this.tbDS.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.tbDS.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.tbDS.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tbDS_CellContentClick);
+            //this.tbDS.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tbDS_CellContentClick);
             // 
             // dSDNBindingSource
             // 

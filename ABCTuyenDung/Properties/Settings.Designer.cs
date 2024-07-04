@@ -8,8 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ABCTuyenDung.Properties
-{
+
 
 
 namespace ABCTuyenDung.Properties {

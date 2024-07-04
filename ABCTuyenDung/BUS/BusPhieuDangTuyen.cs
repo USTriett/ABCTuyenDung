@@ -10,5 +10,10 @@ namespace ABCTuyenDung.BUS
     public class BusPhieuDangTuyen
     {
         public static DTOPhieuDangTuyen dTOPhieuDangTuyen = new DTOPhieuDangTuyen();
+
+        public static void ThemPhieuDangTuyenMoi(DTOPhieuDangTuyen dTOPhieuDangTuyen, System.Data.SqlClient.SqlConnection _connection)
+        {
+            DAOs.DAOPhieuDangTuyen.Them(_connection, dTOPhieuDangTuyen);
+        }
     }
 }

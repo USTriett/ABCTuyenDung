@@ -10,6 +10,7 @@ namespace ABCTuyenDung.DTOs
     {
         public int MaHT { get; set; }
         public string TenHT { get; set; }
+        public byte[] Ten { get; set; }
         public string DonViTG { get; set; }
         public float Gia { get; set; }
     }
