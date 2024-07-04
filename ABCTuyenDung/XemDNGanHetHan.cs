@@ -34,6 +34,9 @@ namespace ABCTuyenDung
 
         }
 
-       
+        private void tbDS_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

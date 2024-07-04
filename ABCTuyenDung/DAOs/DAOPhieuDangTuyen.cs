@@ -1,5 +1,4 @@
-﻿using ABCTuyenDung.DTOs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -33,7 +32,7 @@ namespace ABCTuyenDung.DAOs
                 }
                 command.ExecuteNonQuery();
             }
-        }
+    }
         private static string CreateInsertQueryString()
         {
             string queryFormat = "INSERT INTO PHIEUDANGTUYEN (TINHTRANGXACTHUC, TINHTRANGTHANHTOAN, MADN, VITRITD, MOTAVITRITD, SOLUONG, TIEUCHI,\r\nGIA, DATHANHTOAN, NGAYDBDT, THOIGIANDT, HINHTHUCDT)" +

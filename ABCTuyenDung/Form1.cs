@@ -28,25 +28,14 @@ namespace ABCTuyenDung
 
         }
 
-        private void dateTimePickerLayout_Paint(object sender, PaintEventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
-            FlowLayoutPanel flowLayoutPanel = (FlowLayoutPanel)sender;
-
-            Panel panel1 = flowLayoutPanel.Controls[0] as Panel;
-            panel1.Controls.Add(_startDate);
-            panel1 = flowLayoutPanel.Controls[2] as Panel;
-            panel1.Controls.Add(_endDate);
-
-        }
-
-        private void mainPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            pnUC.Controls.Clear();
+            XemDNGanHetHan uc = new XemDNGanHetHan();
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+            uc.Focus();
+            pnUC.Controls.Add(uc);
         }
     }
 }

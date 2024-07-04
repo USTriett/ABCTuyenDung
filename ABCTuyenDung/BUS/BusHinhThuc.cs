@@ -33,7 +33,7 @@ namespace ABCTuyenDung.BUS
                 }
 
             }
-        }
+    }
         public static List<string> GetAllName()
         {
             List<string> list = new List<string>();
