@@ -21,11 +21,10 @@ namespace ABCTuyenDung.BUS
             dao.findAllBySearchKey(key, DTOPhieuDangTuyenAndDoanhNghiep.list);
         }
 
-        public List<DTOPhieuDangTuyenAndDoanhNghiep> findAll()
+
+        public SqlDataAdapter generateSqlDataAdapter(string query, SqlConnection sqlCon)
         {
-            return dao.findAll();
+            return dao.generateSqlDataAdapter(query, sqlCon);
         }
-
-
     }
 }

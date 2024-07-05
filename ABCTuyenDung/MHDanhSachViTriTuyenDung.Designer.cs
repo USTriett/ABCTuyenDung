@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MHDanhSachViTriTuyenDung));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textSearch = new System.Windows.Forms.TextBox();
@@ -48,6 +48,7 @@
             this.dSDNTableAdapter = new ABCTuyenDung.CTY_ABCDataSetTableAdapters.DSDNTableAdapter();
             this.resultContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.searchBox = new System.Windows.Forms.PictureBox();
+            this.placeholder = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhSachTD)).BeginInit();
@@ -62,6 +63,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.placeholder);
             this.panel1.Controls.Add(this.searchBox);
             this.panel1.Controls.Add(this.textSearch);
             this.panel1.Location = new System.Drawing.Point(362, 65);
@@ -80,7 +82,9 @@
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(884, 27);
             this.textSearch.TabIndex = 0;
+            this.textSearch.Click += new System.EventHandler(this.textSearch_Click);
             this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
+            this.textSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textSearch_KeyDown);
             // 
             // panel2
             // 
@@ -96,8 +100,8 @@
             // 
             // danhSachTD
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            this.danhSachTD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            this.danhSachTD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.danhSachTD.BackgroundColor = System.Drawing.Color.White;
             this.danhSachTD.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.danhSachTD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -110,14 +114,14 @@
             this.danhSachTD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.danhSachTD.Location = new System.Drawing.Point(0, 0);
             this.danhSachTD.Name = "danhSachTD";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Fuchsia;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.danhSachTD.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Fuchsia;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.danhSachTD.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.danhSachTD.RowHeadersWidth = 51;
             this.danhSachTD.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.danhSachTD.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
@@ -194,6 +198,7 @@
             this.homeLink.TabIndex = 3;
             this.homeLink.TabStop = true;
             this.homeLink.Text = "Home";
+            this.homeLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.homeLink_LinkClicked);
             // 
             // cTY_ABCDataSet
             // 
@@ -213,7 +218,7 @@
             // 
             this.resultContainer.Location = new System.Drawing.Point(362, 124);
             this.resultContainer.Name = "resultContainer";
-            this.resultContainer.Size = new System.Drawing.Size(970, 10);
+            this.resultContainer.Size = new System.Drawing.Size(950, 1);
             this.resultContainer.TabIndex = 7;
             // 
             // searchBox
@@ -229,6 +234,18 @@
             this.searchBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.searchBox.TabIndex = 2;
             this.searchBox.TabStop = false;
+            this.searchBox.Click += new System.EventHandler(this.searchBox_Click);
+            // 
+            // placeholder
+            // 
+            this.placeholder.AutoSize = true;
+            this.placeholder.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeholder.Location = new System.Drawing.Point(33, 17);
+            this.placeholder.Name = "placeholder";
+            this.placeholder.Size = new System.Drawing.Size(233, 17);
+            this.placeholder.TabIndex = 8;
+            this.placeholder.Text = "Nhập vị trí hoặc tên doanh nghiệp......";
+            this.placeholder.Click += new System.EventHandler(this.label1_Click);
             // 
             // MHDanhSachViTriTuyenDung
             // 
@@ -273,5 +290,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn VITRITD;
         private System.Windows.Forms.DataGridViewTextBoxColumn NGAYHETHAN;
         private System.Windows.Forms.FlowLayoutPanel resultContainer;
+        private System.Windows.Forms.Label placeholder;
     }
 }

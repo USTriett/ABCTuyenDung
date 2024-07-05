@@ -81,9 +81,9 @@ namespace ABCTuyenDung
                 {
                     sqlCon.Open();
                     // Tạo đối tượng SqlCommand
-                    SqlDataAdapter sqlAdapter = new SqlDataAdapter("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1;", sqlCon);
+                    SqlDataAdapter sqlDataAdapter = bus.generateSqlDataAdapter("SELECT TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1;", sqlCon);
                     DataTable table = new DataTable();
-                    sqlAdapter.Fill(table);
+                    sqlDataAdapter.Fill(table);
                     danhSachTD.DataSource = table;
                     StyleDataGridView(danhSachTD);
                 }
@@ -97,11 +97,15 @@ namespace ABCTuyenDung
 
         public void loadDetails()
         {
-            for (int i = 0; i <= 4 && i < DTOPhieuDangTuyenAndDoanhNghiep.list.Count; i++)
+            for (int i = 0; i < DTOPhieuDangTuyenAndDoanhNghiep.list.Count; i++)
             {
-                searchResultControl res = new searchResultControl();
-                res.setDataFromDTO(DTOPhieuDangTuyenAndDoanhNghiep.list[i]);
-                resultContainer.Controls.Add(res);
+                if (i <= 4)
+                {
+                    searchResultControl res = new searchResultControl();
+                    res.setDataFromDTO(DTOPhieuDangTuyenAndDoanhNghiep.list[i]);
+                    resultContainer.Controls.Add(res);
+                }
+                else break;
             }
             
         }
@@ -113,12 +117,129 @@ namespace ABCTuyenDung
                 resultContainer.Controls.Clear();
                 bus.handleTextSearchChanged(textSearch.Text);
                 loadDetails();
-                resultContainer.Height = (resultContainer.Controls.Count > 5 ? 5: resultContainer.Controls.Count) * 94;
+                resultContainer.Height = (resultContainer.Controls.Count > 5 ? 5: resultContainer.Controls.Count) * 75;
+                placeholder.Visible = false;
             }
             else
             {
                 resultContainer.Height = 0;
+                placeholder.Visible = true;
             }
+        }
+
+        private void textSearch_Enter(object sender, EventArgs e)
+        {
+            MessageBox.Show(textSearch.Text);
+        }
+
+        private void textSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Người dùng nhấn Enter để bắt đầu tìm kiếm.
+                string key = textSearch.Text;
+                // TODO: This line of code loads data into the 'cTY_ABCDataSet.DSDN' table. You can move, or remove it, as needed.
+                // Liên kết dữ liệu của table với database.
+                string connString = ConfigurationManager.ConnectionStrings["ABCTuyenDung.Properties.Settings.CTY_ABCConnectionString"]?.ConnectionString;
+                if (connString.Length > 0)
+                {
+                    // Tạo đối tượng SqlConnection
+                    using (SqlConnection sqlCon = new SqlConnection(connString))
+                    {
+                        if (key.Length > 0)
+                        {
+                            sqlCon.Open();
+                            // Tạo đối tượng SqlCommand
+                            SqlDataAdapter sqlAdapter = bus.generateSqlDataAdapter("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1 AND (VITRITD LIKE '%" + key + "%' OR DN.TENDN LIKE '%" + key + "%')", sqlCon);
+                            DataTable table = new DataTable();
+                            sqlAdapter.Fill(table);
+                            danhSachTD.DataSource = table;
+                            StyleDataGridView(danhSachTD);
+
+                            // remove resultContaner.
+                            resultContainer.Height = 0;
+                        }
+                        else
+                        {
+                            sqlCon.Open();
+                            // Tạo đối tượng SqlCommand
+                            SqlDataAdapter sqlAdapter = bus.generateSqlDataAdapter("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1", sqlCon);
+                            DataTable table = new DataTable();
+                            sqlAdapter.Fill(table);
+                            danhSachTD.DataSource = table;
+                            StyleDataGridView(danhSachTD);
+
+                            // remove resultContaner.
+                            resultContainer.Height = 0;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tải được danh sách vị trí tuyển dụng. Vui lòng thử lại sau!");
+                    return;
+                }
+            }
+        }
+
+        private void searchBox_Click(object sender, EventArgs e)
+        {
+            // Người dùng nhấn Enter để bắt đầu tìm kiếm.
+            string key = textSearch.Text;
+            // TODO: This line of code loads data into the 'cTY_ABCDataSet.DSDN' table. You can move, or remove it, as needed.
+            // Liên kết dữ liệu của table với database.
+            string connString = ConfigurationManager.ConnectionStrings["ABCTuyenDung.Properties.Settings.CTY_ABCConnectionString"]?.ConnectionString;
+            if (connString.Length > 0)
+            {
+                // Tạo đối tượng SqlConnection
+                using (SqlConnection sqlCon = new SqlConnection(connString))
+                {
+                    if (key.Length > 0)
+                    {
+                        sqlCon.Open();
+                        // Tạo đối tượng SqlCommand
+                        SqlDataAdapter sqlAdapter = bus.generateSqlDataAdapter("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1 AND (VITRITD LIKE '%" + key + "%' OR DN.TENDN LIKE '%" + key + "%')", sqlCon);
+                        DataTable table = new DataTable();
+                        sqlAdapter.Fill(table);
+                        danhSachTD.DataSource = table;
+                        StyleDataGridView(danhSachTD);
+                        // remove resultContaner.
+                        resultContainer.Height = 0;
+                    }
+                    else
+                    {
+                        sqlCon.Open();
+                        // Tạo đối tượng SqlCommand
+                        SqlDataAdapter sqlAdapter = bus.generateSqlDataAdapter("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1", sqlCon);
+                        DataTable table = new DataTable();
+                        sqlAdapter.Fill(table);
+                        danhSachTD.DataSource = table;
+                        StyleDataGridView(danhSachTD);
+                        // remove resultContaner.
+                        resultContainer.Height = 0;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không tải được danh sách vị trí tuyển dụng. Vui lòng thử lại sau!");
+                return;
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            placeholder.Visible = false;
+        }
+
+        private void textSearch_Click(object sender, EventArgs e)
+        {
+            placeholder.Visible = false;
+        }
+
+        private void homeLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

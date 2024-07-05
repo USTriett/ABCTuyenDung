@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace ABCTuyenDung.DAOs
                     SqlCommand sqlCommand = new SqlCommand("" +
                         "SELECT PDT.MAPHIEUDT, DN.TENDN, VITRITD, DN.NGUOIDAIDIEN, PDT.SOLUONG, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN " +
                         "FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON DN.MADN = PDT.MADN " +
-                        "WHERE TINHTRANGTHANHTOAN = 1 AND VITRITD LIKE '%" + key + "%'"
+                        "WHERE TINHTRANGTHANHTOAN = 1 AND (VITRITD LIKE '%" + key + "%' OR DN.TENDN LIKE '%" + key + "%')"
                         , sqlCon);
                     // Mở kết nối
                     sqlCon.Open();
@@ -103,6 +104,10 @@ namespace ABCTuyenDung.DAOs
             return list;
         }
 
+        public SqlDataAdapter generateSqlDataAdapter(string query, SqlConnection sqlCon)
+        {
+            return new SqlDataAdapter(query, sqlCon);
+        }
 
     }
 }
