@@ -16,7 +16,7 @@ namespace ABCTuyenDung
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MHDanhSachViTriTuyenDung());
+            Application.Run(new DangKyDangTuyenGUI());
         }
     }
 }
