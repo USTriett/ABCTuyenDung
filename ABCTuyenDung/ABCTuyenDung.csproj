@@ -114,6 +114,7 @@
   <ItemGroup>
     <Compile Include="BUS\BusDkutHsbc.cs" />
     <Compile Include="BUS\BusDoanhNghiep.cs" />
+    <Compile Include="BUS\BUSDoanhNhgiepAndPhieuDangTuyen.cs" />
     <Compile Include="BUS\BusHinhThuc.cs" />
     <Compile Include="BUS\BusHoaDon.cs" />
     <Compile Include="BUS\BusHoSoBangCap.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="DAOs\DAOPhieuDangKyDoanhNghiep.cs" />
     <Compile Include="DAOs\DAOPhieuDangKyUngVien.cs" />
     <Compile Include="DAOs\DAOPhieuDangTuyen.cs" />
+    <Compile Include="DAOs\DAOPhieuDangTuyenAndDoanhNghiep.cs" />
     <Compile Include="DAOs\DAOUngVien.cs" />
     <Compile Include="DAOs\DAOPhieuDangKyUngTuyen.cs" />
     <Compile Include="DTOs\DTODkutHsbc.cs" />
@@ -153,6 +155,7 @@
     <Compile Include="DTOs\DTONhanVien.cs" />
     <Compile Include="DTOs\DTOPhieuDangKyUngVien.cs" />
     <Compile Include="DTOs\DTOPhieuDangTuyen.cs" />
+    <Compile Include="DTOs\DTOPhieuDangTuyenAndDoanhNghiep.cs" />
     <Compile Include="DTOs\DTOUngVien.cs" />
     <Compile Include="DTOs\DTOPhieuDangKyUngTuyen.cs" />
     <Compile Include="Form1.cs">
@@ -163,6 +166,12 @@
     </Compile>
     <Compile Include="IDateTimePicker.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MHDanhSachViTriTuyenDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MHDanhSachViTriTuyenDung.Designer.cs">
+      <DependentUpon>MHDanhSachViTriTuyenDung.cs</DependentUpon>
     </Compile>
     <Compile Include="PhieuQuangCaoGUI.cs">
       <SubType>Form</SubType>
@@ -183,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MHDanhSachViTriTuyenDung.resx">
+      <DependentUpon>MHDanhSachViTriTuyenDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PhieuQuangCaoGUI.resx">
       <DependentUpon>PhieuQuangCaoGUI.cs</DependentUpon>
