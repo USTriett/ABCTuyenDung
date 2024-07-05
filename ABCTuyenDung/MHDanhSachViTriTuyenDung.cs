@@ -232,6 +232,15 @@ namespace ABCTuyenDung
             placeholder.Visible = false;
         }
 
+
+        private void textSearch_MouseLeave(object sender, EventArgs e)
+        {
+            if (textSearch.TextLength == 0)
+            {
+                placeholder.Visible = true;
+            }
+        }
+
         private void textSearch_Click(object sender, EventArgs e)
         {
             placeholder.Visible = false;
@@ -241,5 +250,36 @@ namespace ABCTuyenDung
         {
 
         }
+
+        private void label1_MouseHover(object sender, EventArgs e)
+        {
+            homeLabel.BackColor = Color.LightGray;
+        }
+
+        private void recruitLabel_MouseHover(object sender, EventArgs e)
+        {
+            recruitLabel.BackColor = Color.LightGray;
+        }
+
+        private void logoutLabel_MouseHover(object sender, EventArgs e)
+        {
+            logoutLabel.BackColor = Color.LightGray;
+        }
+
+        private void homeLabel_MouseLeave(object sender, EventArgs e)
+        {
+            homeLabel.BackColor = Color.Transparent;
+        }
+
+        private void recruitLabel_MouseLeave(object sender, EventArgs e)
+        {
+            recruitLabel.BackColor = Color.Transparent;
+        }
+
+        private void logoutLabel_MouseLeave(object sender, EventArgs e)
+        {
+            logoutLabel.BackColor = Color.Transparent;
+        }
+
     }
 }
