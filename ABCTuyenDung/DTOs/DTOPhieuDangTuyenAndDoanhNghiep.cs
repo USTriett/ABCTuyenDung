@@ -12,6 +12,9 @@ namespace ABCTuyenDung.DTOs
         public string nguoiDaiDien { get; set; }
         public string maPhieuDT { get; set; }
         public string viTriTD { get; set; }
+        public int soLuong { get; set; }
         public DateTime ngayHetHan { get; set; }
+
+        public static List<DTOPhieuDangTuyenAndDoanhNghiep> list = new List<DTOPhieuDangTuyenAndDoanhNghiep>();
     }
 }

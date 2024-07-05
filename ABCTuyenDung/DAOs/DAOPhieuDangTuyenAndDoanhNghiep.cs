@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Mysqlx.Expect.Open.Types.Condition.Types;
+using System.Xml.Linq;
 
 namespace ABCTuyenDung.DAOs
 {
     public class DAOPhieuDangTuyenAndDoanhNghiep
     {
-        public List<DTOPhieuDangTuyenAndDoanhNghiep> findAllByViTriTD(string key)
+        public void findAllBySearchKey(string key, List<DTOPhieuDangTuyenAndDoanhNghiep> list)
         {
-            List<DTOPhieuDangTuyenAndDoanhNghiep> list = new List<DTOPhieuDangTuyenAndDoanhNghiep>();
-            string connString = ConfigurationManager.AppSettings["connectionString"];
+            list.Clear();
+            string connString = ConfigurationManager.ConnectionStrings["ABCTuyenDung.Properties.Settings.CTY_ABCConnectionString"]?.ConnectionString;
             Console.WriteLine(connString);
             if (connString.Length > 0)
             {
@@ -24,8 +24,11 @@ namespace ABCTuyenDung.DAOs
                 using (SqlConnection sqlCon = new SqlConnection(connString))
                 {
                     // Tạo đối tượng SqlCommand
-                    SqlCommand sqlCommand = new SqlCommand("SELECT MAPHIEUDT, TENDN, VITRITD, NGUIODAIDIEN, (PDT.NGAYBDDT + THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN " +
-                        "DOANHNGHIEP DN WHERE PDT.MADN = DN.MADN WHERE PDT.TINHTRANGTHANHTOAN = 1 AND VITRITD LIKE '%" + key + "%'", sqlCon);
+                    SqlCommand sqlCommand = new SqlCommand("" +
+                        "SELECT PDT.MAPHIEUDT, DN.TENDN, VITRITD, DN.NGUOIDAIDIEN, PDT.SOLUONG, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN " +
+                        "FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON DN.MADN = PDT.MADN " +
+                        "WHERE TINHTRANGTHANHTOAN = 1 AND VITRITD LIKE '%" + key + "%'"
+                        , sqlCon);
                     // Mở kết nối
                     sqlCon.Open();
                     // Thực hiện câu lệnh và lấy SqlDataReader
@@ -43,7 +46,8 @@ namespace ABCTuyenDung.DAOs
                                 tenDN = reader["TENDN"].ToString(),
                                 nguoiDaiDien = reader["NGUOIDAIDIEN"].ToString(),
                                 viTriTD = reader["VITRITD"].ToString(),
-                                ngayHetHan = Convert.ToDateTime(reader["NGAYHETHAN"])
+                                ngayHetHan = Convert.ToDateTime(reader["NGAYHETHAN"]),
+                                soLuong = int.Parse(reader["SOLUONG"].ToString())
                             };
                             list.Add(dao);
                         }
@@ -53,13 +57,12 @@ namespace ABCTuyenDung.DAOs
                     sqlCommand.Dispose();
                 }
             }
-            return list;
         }
 
         public List<DTOPhieuDangTuyenAndDoanhNghiep> findAll()
         {
             List<DTOPhieuDangTuyenAndDoanhNghiep> list = new List<DTOPhieuDangTuyenAndDoanhNghiep>();
-            string connString = ConfigurationManager.AppSettings["ABCTuyenDung.Properties.Settings.CTY_ABCConnectionString"];
+            string connString = ConfigurationManager.ConnectionStrings["ABCTuyenDung.Properties.Settings.CTY_ABCConnectionString"]?.ConnectionString;
             Console.WriteLine(connString);
             if (connString.Length > 0)
             {
@@ -67,7 +70,7 @@ namespace ABCTuyenDung.DAOs
                 using (SqlConnection sqlCon = new SqlConnection(connString))
                 {
                     // Tạo đối tượng SqlCommand
-                    SqlCommand sqlCommand = new SqlCommand("SELECT MAPHIEUDT, TENDN, VITRITD, NGUIODAIDIEN, (PDT.NGAYBDDT + THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN " +
+                    SqlCommand sqlCommand = new SqlCommand("SELECT MAPHIEUDT, TENDN, VITRITD, SOLUONG, NGUIODAIDIEN, (PDT.NGAYBDDT + THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN " +
                         "DOANHNGHIEP DN WHERE PDT.MADN = DN.MADN WHERE PDT.TINHTRANGTHANHTOAN = 1", sqlCon);
                     // Mở kết nối
                     sqlCon.Open();
@@ -86,6 +89,7 @@ namespace ABCTuyenDung.DAOs
                                 tenDN = reader["TENDN"].ToString(),
                                 nguoiDaiDien = reader["NGUOIDAIDIEN"].ToString(),
                                 viTriTD = reader["VITRITD"].ToString(),
+                                soLuong = int.Parse(reader["SOLUONG"].ToString()),
                                 ngayHetHan = Convert.ToDateTime(reader["NGAYHETHAN"])
                             };
                             list.Add(dao);

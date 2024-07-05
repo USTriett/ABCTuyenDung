@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ABCTuyenDung.BUS;
+using ABCTuyenDung.DTOs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -14,12 +16,13 @@ namespace ABCTuyenDung
 {
     public partial class MHDanhSachViTriTuyenDung : Form
     {
+        public static BUSDoanhNhgiepAndPhieuDangTuyen bus = new BUSDoanhNhgiepAndPhieuDangTuyen();
         public MHDanhSachViTriTuyenDung()
         {
             InitializeComponent();
         }
 
-        private void StyleDataGridView(DataGridView dgv)
+        public void StyleDataGridView(DataGridView dgv)
         {
             // Set the background color for the DataGridView
             dgv.BackgroundColor = Color.White;
@@ -66,8 +69,7 @@ namespace ABCTuyenDung
             dgv.RowHeadersWidth = 50;
         }
 
-
-        private void MHDanhSachViTriTuyenDung_Load(object sender, EventArgs e)
+        public void MHDanhSachViTriTuyenDung_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'cTY_ABCDataSet.DSDN' table. You can move, or remove it, as needed.
             // Liên kết dữ liệu của table với database.
@@ -90,6 +92,32 @@ namespace ABCTuyenDung
             {
                 MessageBox.Show("Không tải được danh sách vị trí tuyển dụng. Vui lòng thử lại sau!");
                 return;
+            }
+        }
+
+        public void loadDetails()
+        {
+            for (int i = 0; i <= 4 && i < DTOPhieuDangTuyenAndDoanhNghiep.list.Count; i++)
+            {
+                searchResultControl res = new searchResultControl();
+                res.setDataFromDTO(DTOPhieuDangTuyenAndDoanhNghiep.list[i]);
+                resultContainer.Controls.Add(res);
+            }
+            
+        }
+
+        private void textSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (textSearch.TextLength > 0)
+            {
+                resultContainer.Controls.Clear();
+                bus.handleTextSearchChanged(textSearch.Text);
+                loadDetails();
+                resultContainer.Height = (resultContainer.Controls.Count > 5 ? 5: resultContainer.Controls.Count) * 94;
+            }
+            else
+            {
+                resultContainer.Height = 0;
             }
         }
     }
