@@ -12,7 +12,6 @@ using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using MySql.Data.MySqlClient;
-using Font = iTextSharp.text.Font;
 
 namespace ABCTuyenDung
 {
@@ -103,41 +102,7 @@ namespace ABCTuyenDung
                     {
                         try
                         {
-                            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-
-                            using (FileStream fstream =  new FileStream(save.FileName, FileMode.Create))
-                            {
-                                Document doc = new Document(PageSize.A4, 8f, 16f, 16f, 8f);
-                                PdfWriter writer = PdfWriter.GetInstance(doc, fstream);
-
-                                doc.Open();
-
-                                PdfPTable pTable = new PdfPTable(tbDS.Columns.Count);
-                                pTable.DefaultCell.Padding = 2;
-                                pTable.WidthPercentage = 100;
-                                pTable.HorizontalAlignment = Element.ALIGN_LEFT;
-
-                                List<string> header = new List<string>(new string[] { "MA DN", "TEN DOANH NGHIEP", "NGUOI DAI DIEN", "EMAIL", "NGAY HET HAN" });
-
-                                foreach (string text in header)
-                                {
-                                    PdfPCell pCell = new PdfPCell(new Phrase(text));
-                                    pTable.AddCell(pCell);
-                                }
-
-                                foreach (DataGridViewRow row in tbDS.Rows)
-                                {
-                                    foreach (DataGridViewCell cell in row.Cells)
-                                    {
-                                        pTable.AddCell(cell.Value.ToString());
-                                    }
-                                }
-
-                                doc.Add(pTable);
-                                doc.Close();
-                                fstream.Close();
-                            }
-
+                            DoanhNghiepBUS.xuatFileDSDNHetHan_BUS(tbDS, save.FileName);
                             MessageBox.Show("Lưu file thành công");
                         }
                         catch (Exception ex)
