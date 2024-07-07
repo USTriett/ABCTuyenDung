@@ -81,7 +81,7 @@ namespace ABCTuyenDung
                 {
                     sqlCon.Open();
                     // Tạo đối tượng SqlCommand
-                    SqlDataAdapter sqlDataAdapter = bus.generateSqlDataAdapter("SELECT TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1;", sqlCon);
+                    SqlDataAdapter sqlDataAdapter = bus.layDanhSachViTriTD("SELECT TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1;", sqlCon);
                     DataTable table = new DataTable();
                     sqlDataAdapter.Fill(table);
                     danhSachTD.DataSource = table;
@@ -150,7 +150,7 @@ namespace ABCTuyenDung
                         {
                             sqlCon.Open();
                             // Tạo đối tượng SqlCommand
-                            SqlDataAdapter sqlAdapter = bus.generateSqlDataAdapter("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1 AND (VITRITD LIKE '%" + key + "%' OR DN.TENDN LIKE '%" + key + "%')", sqlCon);
+                            SqlDataAdapter sqlAdapter = bus.layDanhSachViTriTD("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1 AND (VITRITD LIKE '%" + key + "%' OR DN.TENDN LIKE '%" + key + "%')", sqlCon);
                             DataTable table = new DataTable();
                             sqlAdapter.Fill(table);
                             danhSachTD.DataSource = table;
@@ -163,7 +163,7 @@ namespace ABCTuyenDung
                         {
                             sqlCon.Open();
                             // Tạo đối tượng SqlCommand
-                            SqlDataAdapter sqlAdapter = bus.generateSqlDataAdapter("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1", sqlCon);
+                            SqlDataAdapter sqlAdapter = bus.layDanhSachViTriTD("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1", sqlCon);
                             DataTable table = new DataTable();
                             sqlAdapter.Fill(table);
                             danhSachTD.DataSource = table;
@@ -198,7 +198,7 @@ namespace ABCTuyenDung
                     {
                         sqlCon.Open();
                         // Tạo đối tượng SqlCommand
-                        SqlDataAdapter sqlAdapter = bus.generateSqlDataAdapter("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1 AND (VITRITD LIKE '%" + key + "%' OR DN.TENDN LIKE '%" + key + "%')", sqlCon);
+                        SqlDataAdapter sqlAdapter = bus.layDanhSachViTriTD("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1 AND (VITRITD LIKE '%" + key + "%' OR DN.TENDN LIKE '%" + key + "%')", sqlCon);
                         DataTable table = new DataTable();
                         sqlAdapter.Fill(table);
                         danhSachTD.DataSource = table;
@@ -210,7 +210,7 @@ namespace ABCTuyenDung
                     {
                         sqlCon.Open();
                         // Tạo đối tượng SqlCommand
-                        SqlDataAdapter sqlAdapter = bus.generateSqlDataAdapter("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1", sqlCon);
+                        SqlDataAdapter sqlAdapter = bus.layDanhSachViTriTD("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1", sqlCon);
                         DataTable table = new DataTable();
                         sqlAdapter.Fill(table);
                         danhSachTD.DataSource = table;

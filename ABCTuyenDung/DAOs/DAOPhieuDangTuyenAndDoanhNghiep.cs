@@ -104,7 +104,7 @@ namespace ABCTuyenDung.DAOs
             return list;
         }
 
-        public SqlDataAdapter generateSqlDataAdapter(string query, SqlConnection sqlCon)
+        public SqlDataAdapter layDanhSachViTriTD(string query, SqlConnection sqlCon)
         {
             return new SqlDataAdapter(query, sqlCon);
         }

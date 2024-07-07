@@ -22,9 +22,9 @@ namespace ABCTuyenDung.BUS
         }
 
 
-        public SqlDataAdapter generateSqlDataAdapter(string query, SqlConnection sqlCon)
+        public SqlDataAdapter layDanhSachViTriTD(string query, SqlConnection sqlCon)
         {
-            return dao.generateSqlDataAdapter(query, sqlCon);
+            return dao.layDanhSachViTriTD(query, sqlCon);
         }
     }
 }
