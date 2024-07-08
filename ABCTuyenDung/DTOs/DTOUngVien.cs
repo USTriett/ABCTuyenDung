@@ -16,7 +16,7 @@ namespace ABCTuyenDung.DTOs
         public string DiaChi { get; set; }
         public string Email { get; set; }
         public bool Kqkd { get; set; }
-
+        public string MatKhau { get; set; }
     }
 
 }

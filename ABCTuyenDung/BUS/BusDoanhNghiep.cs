@@ -1,4 +1,4 @@
-﻿using ABCTuyenDung.DTOs;
+﻿using ABCTuyenDung.DAOs;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -84,6 +84,26 @@ namespace ABCTuyenDung.BUS
         {
             _dTODoanhNghiep = GetDoanhNghiep(id);
             return _dTODoanhNghiep?.MatKhau;
+        public static DTODoanhNghiep dtoDoanhNghiep = new DTODoanhNghiep();
+
+        public static bool KiemTraThongTinDangNhap(string email, string matKhau)
+        {
+            DTODoanhNghiep doanhNghiep = DAODoanhNghiep.LayDoanhNghiepBangEmail(email);
+            if (doanhNghiep != null)
+            {
+                bool correctPassword = BCrypt.Net.BCrypt.Verify(matKhau, doanhNghiep.MatKhau);
+                return correctPassword;
+            }
+            return false;
+        }
+        public static bool DangKyDoanhNghiep(DTODoanhNghiep doanhNghiep)
+        {
+            return DAODoanhNghiep.ThemDoanhNghiep(doanhNghiep);
+        }
+
+        public static bool KiemTraDoanhNghiepTonTai(DTODoanhNghiep doanhNghiep)
+        {
+            return DAODoanhNghiep.KiemTraDoanhNghiepTonTai(doanhNghiep.Email);         
         }
     }
 

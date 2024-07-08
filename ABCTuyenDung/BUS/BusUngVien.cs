@@ -1,4 +1,4 @@
-﻿using ABCTuyenDung.DTOs;
+﻿using ABCTuyenDung.DAOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +16,17 @@ namespace ABCTuyenDung.BUS
            dTOUngVien = DAOs.DAOUngVien.Lay(maUV);
         }
 
+        public static bool KiemTraThongTinDangNhap(string sdt, string matKhau)
+        {
+            DTOUngVien ungVien = DAOUngVien.LayUngVienBangSDT(sdt);
+            if (ungVien != null)
+            {
+                int salt = 12;
+                string passwordHash = BCrypt.Net.BCrypt.HashPassword(matKhau, salt);
+                bool correctPassword = BCrypt.Net.BCrypt.Verify(ungVien.MatKhau, passwordHash);
+                return correctPassword;
+            }
+            return false;
+        }
     }
 }

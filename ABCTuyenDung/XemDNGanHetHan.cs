@@ -31,7 +31,6 @@ namespace ABCTuyenDung
 
                 tbDS.DataSource = dt;
             }
-
         }
 
         private void tbDS_CellContentClick(object sender, DataGridViewCellEventArgs e)
