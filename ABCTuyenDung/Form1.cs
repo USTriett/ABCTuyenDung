@@ -12,9 +12,16 @@ namespace ABCTuyenDung
 {
     public partial class Form1 : Form
     {
+        private IDatePicker _startDate;
+        private IDatePicker _endDate;
         public Form1()
         {
+            _startDate = new IDatePicker();
+            _endDate = new IDatePicker();
+
             InitializeComponent();
+
+
         }
         public void TestSqlConnector(string connector)
         {
