@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.priceTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.hinhThucDangTuyenComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.submitBtn = new System.Windows.Forms.Button();
@@ -46,9 +49,6 @@
             this.formLabel = new System.Windows.Forms.Label();
             this.moTaText = new System.Windows.Forms.TextBox();
             this.viTriText = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.priceTextBox = new System.Windows.Forms.TextBox();
             this.mainPanel.SuspendLayout();
             this.dateTimePickerLayout.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +81,34 @@
             this.mainPanel.Padding = new System.Windows.Forms.Padding(18, 20, 0, 50);
             this.mainPanel.Size = new System.Drawing.Size(800, 450);
             this.mainPanel.TabIndex = 3;
+            // 
+            // priceTextBox
+            // 
+            this.priceTextBox.Location = new System.Drawing.Point(74, 918);
+            this.priceTextBox.Name = "priceTextBox";
+            this.priceTextBox.ReadOnly = true;
+            this.priceTextBox.Size = new System.Drawing.Size(594, 22);
+            this.priceTextBox.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(71, 899);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 16);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Giá";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(501, 975);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(166, 38);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Hủy";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // hinhThucDangTuyenComboBox
             // 
@@ -239,34 +267,6 @@
             this.viTriText.Size = new System.Drawing.Size(599, 22);
             this.viTriText.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(501, 975);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(166, 38);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Hủy";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 899);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 16);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Giá";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // priceTextBox
-            // 
-            this.priceTextBox.Location = new System.Drawing.Point(74, 918);
-            this.priceTextBox.Name = "priceTextBox";
-            this.priceTextBox.ReadOnly = true;
-            this.priceTextBox.Size = new System.Drawing.Size(594, 22);
-            this.priceTextBox.TabIndex = 19;
-            // 
             // PhieuQuangCaoGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -275,6 +275,7 @@
             this.Controls.Add(this.mainPanel);
             this.Name = "PhieuQuangCaoGUI";
             this.Text = "PhieuQuangCaoGUI";
+            this.Load += new System.EventHandler(this.PhieuQuangCaoGUI_Load);
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.dateTimePickerLayout.ResumeLayout(false);

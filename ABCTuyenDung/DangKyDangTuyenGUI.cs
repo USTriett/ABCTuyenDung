@@ -54,9 +54,6 @@ namespace ABCTuyenDung
             _fields.Add("_endDate", _endDate.Value.Date.ToString());
             _fields.Add("price", "0");
 
-
-            
-
         }
 
         private void SetActive(object sender, FormClosedEventArgs e)

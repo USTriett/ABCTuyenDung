@@ -59,9 +59,9 @@ namespace ABCTuyenDung
             DTOPhieuDangTuyen dTOPhieuDangTuyen = new DTOPhieuDangTuyen
             {
                 MaDN = 1,
-                ViTri = viTriText.Text.ToString(),
+                ViTriTD = viTriText.Text.ToString(),
                 SoLuong = int.Parse(soLuongText.Text.ToString()),
-                MoTaViTri = moTaText.Text.ToString(),
+                MoTaViTriTD = moTaText.Text.ToString(),
                 TieuChi = yeuCauText.Text.ToString(),
                 Gia = float.Parse(priceTextBox.Text.ToString()),
                 NgayBatDauDT = _startDate.Value,
@@ -70,7 +70,7 @@ namespace ABCTuyenDung
 
             };
 
-            BUS.BusPhieuDangTuyen.ThemPhieuDangTuyenMoi(dTOPhieuDangTuyen, _connection);
+            BUS.BusPhieuDangTuyen.ThemPhieuDangTuyenMoi(dTOPhieuDangTuyen);
             this.Close();
         }
 
@@ -82,6 +82,11 @@ namespace ABCTuyenDung
         internal void AddClosingListener(Form activeForm)
         {
             throw new NotImplementedException();
+        }
+
+        private void PhieuQuangCaoGUI_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

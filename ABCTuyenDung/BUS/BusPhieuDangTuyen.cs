@@ -11,9 +11,14 @@ namespace ABCTuyenDung.BUS
     {
         public static DTOPhieuDangTuyen dTOPhieuDangTuyen = new DTOPhieuDangTuyen();
 
-        public static void ThemPhieuDangTuyenMoi(DTOPhieuDangTuyen dTOPhieuDangTuyen, System.Data.SqlClient.SqlConnection _connection)
+        public static void ThemPhieuDangTuyenMoi(DTOPhieuDangTuyen dTOPhieuDangTuyen)
         {
-            DAOs.DAOPhieuDangTuyen.Them(_connection, dTOPhieuDangTuyen);
+            DAOs.DAOPhieuDangTuyen.Them(dTOPhieuDangTuyen);
+        }
+
+        public static void LayPhieuDangTuyen(int maPhieuDangTuyen)
+        {
+            dTOPhieuDangTuyen = DAOs.DAOPhieuDangTuyen.Lay(maPhieuDangTuyen);
         }
     }
 }

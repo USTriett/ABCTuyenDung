@@ -134,6 +134,12 @@
     <Compile Include="DangKyDangTuyenGUI.Designer.cs">
       <DependentUpon>DangKyDangTuyenGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="DangKyUngTuyenGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangKyUngTuyenGUI.Designer.cs">
+      <DependentUpon>DangKyUngTuyenGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAOs\DAODoanhNghiep.cs" />
     <Compile Include="DAOs\DAOHinhThuc.cs" />
     <Compile Include="DAOs\DAOHoaDon.cs" />
@@ -172,6 +178,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource2.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TuyenDungGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TuyenDungGUI.Designer.cs">
+      <DependentUpon>TuyenDungGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="XemDNGanHetHan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -180,6 +202,9 @@
     </Compile>
     <EmbeddedResource Include="DangKyDangTuyenGUI.resx">
       <DependentUpon>DangKyDangTuyenGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DangKyUngTuyenGUI.resx">
+      <DependentUpon>DangKyUngTuyenGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -197,6 +222,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource2.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource2.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TuyenDungGUI.resx">
+      <DependentUpon>TuyenDungGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XemDNGanHetHan.resx">
       <DependentUpon>XemDNGanHetHan.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +271,8 @@
   <ItemGroup>
     <None Include="Resources\calendarWhite.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Upload.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

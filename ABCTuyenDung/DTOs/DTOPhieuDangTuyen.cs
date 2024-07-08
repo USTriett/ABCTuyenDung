@@ -13,8 +13,8 @@ namespace ABCTuyenDung.DTOs
         public bool TinhTrangThanhToan { get; set; }
         public int MaNV { get; set; }
         public int MaDN { get; set; }
-        public string ViTri { get; set; }
-        public string MoTaViTri { get; set; }
+        public string ViTriTD { get; set; }
+        public string MoTaViTriTD { get; set; }
         public int SoLuong { get; set; }
         public string TieuChi { get; set; }
         public float Gia { get; set; }

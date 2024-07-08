@@ -10,5 +10,11 @@ namespace ABCTuyenDung.BUS
     public class BusDkutHsbc
     {
         public static DTODkutHsbc dTODkutHsbc = new DTODkutHsbc();
+       
+        public static void ThemHSBC(List<int> hsbcs, int maPhieuUT)
+        {
+            if (hsbcs.Count == 0) { return; }
+            DAOs.DAODkutHsbc.Them(hsbcs, maPhieuUT);
+        }
     }
 }
