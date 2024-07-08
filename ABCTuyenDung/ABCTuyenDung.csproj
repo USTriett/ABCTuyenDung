@@ -140,8 +140,9 @@
     <Compile Include="DangKyUngTuyenGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DangKyUngTuyenGUI.Designer.cs">
-      <DependentUpon>DangKyUngTuyenGUI.cs</DependentUpon>
+	  <Compile Include="DangKyUngTuyenGUI.Designer.cs">
+		  <DependentUpon>DangKyUngTuyenGUI.cs</DependentUpon>
+	  </Compile>
     <Compile Include="GUIDangKyThanhVienDoanhNghiep.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,8 +218,9 @@
     <EmbeddedResource Include="DangKyDangTuyenGUI.resx">
       <DependentUpon>DangKyDangTuyenGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DangKyUngTuyenGUI.resx">
-      <DependentUpon>DangKyUngTuyenGUI.cs</DependentUpon>
+		<EmbeddedResource Include="DangKyUngTuyenGUI.resx">
+			<DependentUpon>DangKyUngTuyenGUI.cs</DependentUpon>
+		</EmbeddedResource>
     <EmbeddedResource Include="GUIDangKyThanhVienDoanhNghiep.resx">
       <DependentUpon>GUIDangKyThanhVienDoanhNghiep.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,7 +16,7 @@ namespace ABCTuyenDung
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TuyenDungGUI(1, 1));
+            Application.Run(new GUIDangNhap());
             
         }
     }

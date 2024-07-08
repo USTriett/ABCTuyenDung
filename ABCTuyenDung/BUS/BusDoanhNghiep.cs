@@ -1,4 +1,5 @@
 ﻿using ABCTuyenDung.DAOs;
+using ABCTuyenDung.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -84,6 +85,7 @@ namespace ABCTuyenDung.BUS
         {
             _dTODoanhNghiep = GetDoanhNghiep(id);
             return _dTODoanhNghiep?.MatKhau;
+        }
         public static DTODoanhNghiep dtoDoanhNghiep = new DTODoanhNghiep();
 
         public static bool KiemTraThongTinDangNhap(string email, string matKhau)
