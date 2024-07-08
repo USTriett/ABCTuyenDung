@@ -117,16 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="dSDNBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>268, 17</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="searchBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAsNJREFUOE/V
+        lN9LU2EYx8MgkIougv6ALrropotAOO8myQwiKHeO8z0VNS9i52xTk8oIIrJjGAQGYURkNyVEd0GZ9uMi
+        XBi5/FW6SkWl5c4WpXPqmj/Y4Ol51ht52Kzwri88DM679/N+n/f5nrPut4yCIqVyK1M8DptTvyHJ2hsm
+        65+wuiRZv2t3eg+W8KpN4s9/lmEYBXaXfztzem/by31QeqQW9rlPw/7KM9lfx+FawOdJyak1MMW3TWxb
+        TT9hNlnvK+HVcKimAZrvP4eOnjF4+SEKj7tH4GprO6g1BuypqMrYZK1vL9e3iM25ohPJGcFOXm6BAELe
+        Ts7DwIrq/zwHnSETTly6SU4XJEW/tZNf3CAQVtnKfEepTXJGjobMJISi3y3AX9UZigCvNgC7mUIjDoGw
+        ijn1ZrozajMUTcJMKp0XOBhJQs9EHK7dewo4qJSEgxMIq5jsfUgX/6R3DCamFsBMLOXC0HVsbhnXU9Ae
+        HCWHGSZrPQJhFUWDpvlqOJbdFJ3ND/yCa3TYi8FJKHb5yWVYIKzCvAXIYUdwBMLxRZhKLucM5R22SweF
+        pxeg7fUwwdJYAYGwijm1K5QzisaQOQ9zi7l3SAfQs+D4NDTdaSNgkil6o0BYRW8AhZZyFnhvZgeTbygU
+        nWf9E+Dy1xMwZpf9uwXCKlvZ8c046UYKLeWMohEcj2cBBOoLz2adEcxXfx1h3jQOJeh2uzcKhFWc8/V2
+        xbsLTx0gp5QzigZNkwZAd0ZtCmf4pugZh+z5eLZcrfvGS/K/2wQtUrQduMHAmsFK2WTvUrGrii4/jR0s
+        4u9XhPWWyp7EuXKeMFXbqKlKF1aFkiR+qpDJnmMUdvzCPMCBdSOkCz8KrZKiHWjCNlsqyuqiKktgZf4J
+        +jdFuFQY45L+f0JjnJ0Xy2vTSmhMZWlTZd1iae3KQlWmITQS5ezRD1FSYb2IW0m5AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="TENDN.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="NGUOIDAIDIEN.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MAPHIEUDT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="VITRITD.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="NGAYHETHAN.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="cTY_ABCDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>570, 17</value>
+  </metadata>
+  <metadata name="dSDNBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>740, 17</value>
   </metadata>
   <metadata name="dSDNTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>562, 17</value>
-  </metadata>
-  <metadata name="dSDNBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>840, 17</value>
+    <value>935, 17</value>
   </metadata>
 </root>

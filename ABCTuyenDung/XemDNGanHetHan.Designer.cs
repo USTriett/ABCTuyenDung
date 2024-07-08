@@ -40,15 +40,11 @@
             this.cTY_ABCDataSet = new ABCTuyenDung.CTY_ABCDataSet();
             this.btXuatFile = new Guna.UI2.WinForms.Guna2Button();
             this.dSDNTableAdapter = new ABCTuyenDung.CTY_ABCDataSetTableAdapters.DSDNTableAdapter();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.mÃDNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tÊNDOANHNGHIỆPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nGƯỜIĐẠIDIỆNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nGÀYHẾTHẠNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dSDNBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tbDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDNBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTY_ABCDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSDNBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTieuDe
@@ -89,6 +85,7 @@
             this.cbLoc.Name = "cbLoc";
             this.cbLoc.Size = new System.Drawing.Size(278, 36);
             this.cbLoc.TabIndex = 4;
+            this.cbLoc.SelectedIndexChanged += new System.EventHandler(this.cbLoc_SelectedIndexChanged);
             // 
             // tbDS
             // 
@@ -96,7 +93,6 @@
             this.tbDS.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.tbDS.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.tbDS.AutoGenerateColumns = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,14 +103,6 @@
             this.tbDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tbDS.ColumnHeadersHeight = 46;
             this.tbDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.tbDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.mÃDNDataGridViewTextBoxColumn,
-            this.tÊNDOANHNGHIỆPDataGridViewTextBoxColumn,
-            this.nGƯỜIĐẠIDIỆNDataGridViewTextBoxColumn,
-            this.eMAILDataGridViewTextBoxColumn,
-            this.nGÀYHẾTHẠNDataGridViewTextBoxColumn});
-            this.tbDS.DataSource = this.dSDNBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,65 +169,16 @@
             this.btXuatFile.Size = new System.Drawing.Size(180, 45);
             this.btXuatFile.TabIndex = 6;
             this.btXuatFile.Text = "XUẤT FILE";
+            this.btXuatFile.Click += new System.EventHandler(this.btXuatFile_Click);
             // 
             // dSDNTableAdapter
             // 
             this.dSDNTableAdapter.ClearBeforeFill = true;
             // 
-            // Column1
+            // dSDNBindingSource1
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "     ";
-            this.Column1.MinimumWidth = 10;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 41;
-            // 
-            // mÃDNDataGridViewTextBoxColumn
-            // 
-            this.mÃDNDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.mÃDNDataGridViewTextBoxColumn.DataPropertyName = "MÃ DN";
-            this.mÃDNDataGridViewTextBoxColumn.HeaderText = "MÃ DN";
-            this.mÃDNDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.mÃDNDataGridViewTextBoxColumn.Name = "mÃDNDataGridViewTextBoxColumn";
-            this.mÃDNDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mÃDNDataGridViewTextBoxColumn.Width = 123;
-            // 
-            // tÊNDOANHNGHIỆPDataGridViewTextBoxColumn
-            // 
-            this.tÊNDOANHNGHIỆPDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tÊNDOANHNGHIỆPDataGridViewTextBoxColumn.DataPropertyName = "TÊN DOANH NGHIỆP";
-            this.tÊNDOANHNGHIỆPDataGridViewTextBoxColumn.HeaderText = "TÊN DOANH NGHIỆP";
-            this.tÊNDOANHNGHIỆPDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.tÊNDOANHNGHIỆPDataGridViewTextBoxColumn.Name = "tÊNDOANHNGHIỆPDataGridViewTextBoxColumn";
-            this.tÊNDOANHNGHIỆPDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nGƯỜIĐẠIDIỆNDataGridViewTextBoxColumn
-            // 
-            this.nGƯỜIĐẠIDIỆNDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nGƯỜIĐẠIDIỆNDataGridViewTextBoxColumn.DataPropertyName = "NGƯỜI ĐẠI DIỆN";
-            this.nGƯỜIĐẠIDIỆNDataGridViewTextBoxColumn.HeaderText = "NGƯỜI ĐẠI DIỆN";
-            this.nGƯỜIĐẠIDIỆNDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.nGƯỜIĐẠIDIỆNDataGridViewTextBoxColumn.Name = "nGƯỜIĐẠIDIỆNDataGridViewTextBoxColumn";
-            this.nGƯỜIĐẠIDIỆNDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eMAILDataGridViewTextBoxColumn
-            // 
-            this.eMAILDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.eMAILDataGridViewTextBoxColumn.DataPropertyName = "EMAIL";
-            this.eMAILDataGridViewTextBoxColumn.HeaderText = "EMAIL";
-            this.eMAILDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.eMAILDataGridViewTextBoxColumn.Name = "eMAILDataGridViewTextBoxColumn";
-            this.eMAILDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nGÀYHẾTHẠNDataGridViewTextBoxColumn
-            // 
-            this.nGÀYHẾTHẠNDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nGÀYHẾTHẠNDataGridViewTextBoxColumn.DataPropertyName = "NGÀY HẾT HẠN";
-            this.nGÀYHẾTHẠNDataGridViewTextBoxColumn.HeaderText = "NGÀY HẾT HẠN";
-            this.nGÀYHẾTHẠNDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.nGÀYHẾTHẠNDataGridViewTextBoxColumn.Name = "nGÀYHẾTHẠNDataGridViewTextBoxColumn";
-            this.nGÀYHẾTHẠNDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dSDNBindingSource1.DataMember = "DSDN";
+            this.dSDNBindingSource1.DataSource = this.cTY_ABCDataSet;
             // 
             // XemDNGanHetHan
             // 
@@ -257,6 +196,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDNBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTY_ABCDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSDNBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,11 +212,6 @@
         private System.Windows.Forms.BindingSource dSDNBindingSource;
         private CTY_ABCDataSet cTY_ABCDataSet;
         private CTY_ABCDataSetTableAdapters.DSDNTableAdapter dSDNTableAdapter;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mÃDNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tÊNDOANHNGHIỆPDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nGƯỜIĐẠIDIỆNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eMAILDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nGÀYHẾTHẠNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource dSDNBindingSource1;
     }
 }
