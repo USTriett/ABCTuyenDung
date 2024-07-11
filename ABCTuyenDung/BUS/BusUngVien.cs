@@ -22,9 +22,9 @@ namespace ABCTuyenDung.BUS
             DTOUngVien ungVien = DAOUngVien.LayUngVienBangSDT(sdt);
             if (ungVien != null)
             {
-                int salt = 12;
-                string passwordHash = BCrypt.Net.BCrypt.HashPassword(matKhau, salt);
-                bool correctPassword = BCrypt.Net.BCrypt.Verify(ungVien.MatKhau, passwordHash);
+                // int salt = 12;
+                // string passwordHash = BCrypt.Net.BCrypt.HashPassword(matKhau, salt);
+                bool correctPassword = BCrypt.Net.BCrypt.Verify(matKhau, ungVien.MatKhau);
                 return correctPassword;
             }
             return false;
