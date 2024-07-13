@@ -148,9 +148,9 @@
     <Compile Include="DangKyUngTuyenGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="DangKyUngTuyenGUI.Designer.cs">
-		  <DependentUpon>DangKyUngTuyenGUI.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="DangKyUngTuyenGUI.Designer.cs">
+      <DependentUpon>DangKyUngTuyenGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIDangKyThanhVienDoanhNghiep.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,12 +222,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource2.resx</DependentUpon>
     </Compile>
+    <Compile Include="TrangChuDoanhNghiepGui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrangChuDoanhNghiepGui.Designer.cs">
+      <DependentUpon>TrangChuDoanhNghiepGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrangChuDoanhNghiepUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TrangChuDoanhNghiepUserControl.Designer.cs">
+      <DependentUpon>TrangChuDoanhNghiepUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrangChuUngVienGui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrangChuUngVienGui.Designer.cs">
+      <DependentUpon>TrangChuUngVienGui.cs</DependentUpon>
+    </Compile>
     <Compile Include="TuyenDungGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="TuyenDungGUI.Designer.cs">
-		  <DependentUpon>TuyenDungGUI.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="TuyenDungGUI.Designer.cs">
+      <DependentUpon>TuyenDungGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="searchResultControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -243,9 +261,9 @@
     <EmbeddedResource Include="DangKyDangTuyenGUI.resx">
       <DependentUpon>DangKyDangTuyenGUI.cs</DependentUpon>
     </EmbeddedResource>
-		<EmbeddedResource Include="DangKyUngTuyenGUI.resx">
-			<DependentUpon>DangKyUngTuyenGUI.cs</DependentUpon>
-		</EmbeddedResource>
+    <EmbeddedResource Include="DangKyUngTuyenGUI.resx">
+      <DependentUpon>DangKyUngTuyenGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUIDangKyThanhVienDoanhNghiep.resx">
       <DependentUpon>GUIDangKyThanhVienDoanhNghiep.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,9 +297,18 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource2.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-	  <EmbeddedResource Include="TuyenDungGUI.resx">
-		  <DependentUpon>TuyenDungGUI.cs</DependentUpon>
-	  </EmbeddedResource>
+    <EmbeddedResource Include="TrangChuDoanhNghiepGui.resx">
+      <DependentUpon>TrangChuDoanhNghiepGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrangChuDoanhNghiepUserControl.resx">
+      <DependentUpon>TrangChuDoanhNghiepUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrangChuUngVienGui.resx">
+      <DependentUpon>TrangChuUngVienGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TuyenDungGUI.resx">
+      <DependentUpon>TuyenDungGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="searchResultControl.resx">
       <DependentUpon>searchResultControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -323,17 +350,15 @@
   <ItemGroup>
     <None Include="Resources\calendarWhite.png" />
   </ItemGroup>
-	<ItemGroup>
-		<None Include="Resources\Upload.png" />
-		<Content Include="image\dang-ky-dn.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		<Content Include="image\dang-nhap.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		<Content Include="view.sql" />
-	</ItemGroup>
-
-	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
+  <ItemGroup>
+    <None Include="Resources\Upload.png" />
+    <Content Include="image\dang-ky-dn.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="image\dang-nhap.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

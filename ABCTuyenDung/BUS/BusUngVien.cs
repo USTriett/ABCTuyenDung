@@ -29,5 +29,11 @@ namespace ABCTuyenDung.BUS
             }
             return false;
         }
+
+        public static int LayMaUngVien(string sdt)
+        {
+            DTOUngVien ungVien = DAOUngVien.LayUngVienBangSDT(sdt);
+            return ungVien.MaUV;
+        }
     }
 }

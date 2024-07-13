@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MHDanhSachViTriTuyenDung));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.placeholder = new System.Windows.Forms.Label();
+            this.searchBox = new System.Windows.Forms.PictureBox();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.danhSachTD = new System.Windows.Forms.DataGridView();
@@ -42,23 +44,21 @@
             this.VITRITD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGAYHETHAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.logoutLabel = new System.Windows.Forms.Label();
+            this.recruitLabel = new System.Windows.Forms.Label();
+            this.homeLabel = new System.Windows.Forms.Label();
             this.homeLink = new System.Windows.Forms.LinkLabel();
             this.cTY_ABCDataSet = new ABCTuyenDung.CTY_ABCDataSet();
             this.dSDNBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dSDNTableAdapter = new ABCTuyenDung.CTY_ABCDataSetTableAdapters.DSDNTableAdapter();
             this.resultContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.searchBox = new System.Windows.Forms.PictureBox();
-            this.placeholder = new System.Windows.Forms.Label();
-            this.homeLabel = new System.Windows.Forms.Label();
-            this.recruitLabel = new System.Windows.Forms.Label();
-            this.logoutLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBox)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhSachTD)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cTY_ABCDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDNBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,6 +73,32 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(970, 53);
             this.panel1.TabIndex = 4;
+            // 
+            // placeholder
+            // 
+            this.placeholder.AutoSize = true;
+            this.placeholder.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeholder.Location = new System.Drawing.Point(33, 17);
+            this.placeholder.Name = "placeholder";
+            this.placeholder.Size = new System.Drawing.Size(233, 17);
+            this.placeholder.TabIndex = 8;
+            this.placeholder.Text = "Nhập vị trí hoặc tên doanh nghiệp......";
+            this.placeholder.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // searchBox
+            // 
+            this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchBox.BackColor = System.Drawing.Color.Teal;
+            this.searchBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchBox.Image = ((System.Drawing.Image)(resources.GetObject("searchBox.Image")));
+            this.searchBox.Location = new System.Drawing.Point(910, 0);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(60, 53);
+            this.searchBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.searchBox.TabIndex = 2;
+            this.searchBox.TabStop = false;
+            this.searchBox.Click += new System.EventHandler(this.searchBox_Click);
             // 
             // textSearch
             // 
@@ -104,8 +130,8 @@
             // 
             // danhSachTD
             // 
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Black;
-            this.danhSachTD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            this.danhSachTD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.danhSachTD.BackgroundColor = System.Drawing.Color.White;
             this.danhSachTD.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.danhSachTD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -118,14 +144,14 @@
             this.danhSachTD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.danhSachTD.Location = new System.Drawing.Point(0, 0);
             this.danhSachTD.Name = "danhSachTD";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Fuchsia;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.danhSachTD.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Fuchsia;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.danhSachTD.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.danhSachTD.RowHeadersWidth = 51;
             this.danhSachTD.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.danhSachTD.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
@@ -193,6 +219,62 @@
             this.panel3.Size = new System.Drawing.Size(268, 774);
             this.panel3.TabIndex = 6;
             // 
+            // logoutLabel
+            // 
+            this.logoutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.logoutLabel.AutoSize = true;
+            this.logoutLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold);
+            this.logoutLabel.ForeColor = System.Drawing.Color.White;
+            this.logoutLabel.Location = new System.Drawing.Point(1, 309);
+            this.logoutLabel.Name = "logoutLabel";
+            this.logoutLabel.Padding = new System.Windows.Forms.Padding(40, 10, 40, 10);
+            this.logoutLabel.Size = new System.Drawing.Size(264, 58);
+            this.logoutLabel.TabIndex = 8;
+            this.logoutLabel.Text = "↪️ Đăng Xuất";
+            this.logoutLabel.MouseLeave += new System.EventHandler(this.logoutLabel_MouseLeave);
+            this.logoutLabel.MouseHover += new System.EventHandler(this.logoutLabel_MouseHover);
+            // 
+            // recruitLabel
+            // 
+            this.recruitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.recruitLabel.AutoSize = true;
+            this.recruitLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.recruitLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold);
+            this.recruitLabel.ForeColor = System.Drawing.Color.White;
+            this.recruitLabel.Location = new System.Drawing.Point(3, 241);
+            this.recruitLabel.Name = "recruitLabel";
+            this.recruitLabel.Padding = new System.Windows.Forms.Padding(35, 10, 13, 10);
+            this.recruitLabel.Size = new System.Drawing.Size(263, 58);
+            this.recruitLabel.TabIndex = 8;
+            this.recruitLabel.Text = "📂 Tuyển Dụng";
+            this.recruitLabel.MouseLeave += new System.EventHandler(this.recruitLabel_MouseLeave);
+            this.recruitLabel.MouseHover += new System.EventHandler(this.recruitLabel_MouseHover);
+            // 
+            // homeLabel
+            // 
+            this.homeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.homeLabel.AutoSize = true;
+            this.homeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.homeLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeLabel.ForeColor = System.Drawing.Color.White;
+            this.homeLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.homeLabel.Location = new System.Drawing.Point(4, 172);
+            this.homeLabel.Name = "homeLabel";
+            this.homeLabel.Padding = new System.Windows.Forms.Padding(34, 10, 34, 10);
+            this.homeLabel.Size = new System.Drawing.Size(260, 58);
+            this.homeLabel.TabIndex = 8;
+            this.homeLabel.Text = "🏠 Trang Chủ";
+            this.homeLabel.Click += new System.EventHandler(this.homeLabel_Click);
+            this.homeLabel.MouseLeave += new System.EventHandler(this.homeLabel_MouseLeave);
+            this.homeLabel.MouseHover += new System.EventHandler(this.label1_MouseHover);
+            // 
             // homeLink
             // 
             this.homeLink.AutoSize = true;
@@ -228,87 +310,6 @@
             this.resultContainer.Size = new System.Drawing.Size(950, 1);
             this.resultContainer.TabIndex = 7;
             // 
-            // searchBox
-            // 
-            this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchBox.BackColor = System.Drawing.Color.Teal;
-            this.searchBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchBox.Image = ((System.Drawing.Image)(resources.GetObject("searchBox.Image")));
-            this.searchBox.Location = new System.Drawing.Point(910, 0);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(60, 53);
-            this.searchBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.searchBox.TabIndex = 2;
-            this.searchBox.TabStop = false;
-            this.searchBox.Click += new System.EventHandler(this.searchBox_Click);
-            // 
-            // placeholder
-            // 
-            this.placeholder.AutoSize = true;
-            this.placeholder.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholder.Location = new System.Drawing.Point(33, 17);
-            this.placeholder.Name = "placeholder";
-            this.placeholder.Size = new System.Drawing.Size(263, 17);
-            this.placeholder.TabIndex = 8;
-            this.placeholder.Text = "Nhập vị trí hoặc tên doanh nghiệp......";
-            this.placeholder.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // homeLabel
-            // 
-            this.homeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.homeLabel.AutoSize = true;
-            this.homeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.homeLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeLabel.ForeColor = System.Drawing.Color.White;
-            this.homeLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.homeLabel.Location = new System.Drawing.Point(4, 172);
-            this.homeLabel.Name = "homeLabel";
-            this.homeLabel.Padding = new System.Windows.Forms.Padding(34, 10, 34, 10);
-            this.homeLabel.Size = new System.Drawing.Size(260, 58);
-            this.homeLabel.TabIndex = 8;
-            this.homeLabel.Text = "🏠 Trang Chủ";
-            this.homeLabel.MouseLeave += new System.EventHandler(this.homeLabel_MouseLeave);
-            this.homeLabel.MouseHover += new System.EventHandler(this.label1_MouseHover);
-            // 
-            // recruitLabel
-            // 
-            this.recruitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.recruitLabel.AutoSize = true;
-            this.recruitLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.recruitLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold);
-            this.recruitLabel.ForeColor = System.Drawing.Color.White;
-            this.recruitLabel.Location = new System.Drawing.Point(3, 241);
-            this.recruitLabel.Name = "recruitLabel";
-            this.recruitLabel.Padding = new System.Windows.Forms.Padding(35, 10, 13, 10);
-            this.recruitLabel.Size = new System.Drawing.Size(263, 58);
-            this.recruitLabel.TabIndex = 8;
-            this.recruitLabel.Text = "📂 Tuyển Dụng";
-            this.recruitLabel.MouseLeave += new System.EventHandler(this.recruitLabel_MouseLeave);
-            this.recruitLabel.MouseHover += new System.EventHandler(this.recruitLabel_MouseHover);
-            // 
-            // logoutLabel
-            // 
-            this.logoutLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.logoutLabel.AutoSize = true;
-            this.logoutLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logoutLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold);
-            this.logoutLabel.ForeColor = System.Drawing.Color.White;
-            this.logoutLabel.Location = new System.Drawing.Point(1, 309);
-            this.logoutLabel.Name = "logoutLabel";
-            this.logoutLabel.Padding = new System.Windows.Forms.Padding(40, 10, 40, 10);
-            this.logoutLabel.Size = new System.Drawing.Size(264, 58);
-            this.logoutLabel.TabIndex = 8;
-            this.logoutLabel.Text = "↪️ Đăng Xuất";
-            this.logoutLabel.MouseLeave += new System.EventHandler(this.logoutLabel_MouseLeave);
-            this.logoutLabel.MouseHover += new System.EventHandler(this.logoutLabel_MouseHover);
-            // 
             // MHDanhSachViTriTuyenDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -323,13 +324,13 @@
             this.Load += new System.EventHandler(this.MHDanhSachViTriTuyenDung_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBox)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.danhSachTD)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cTY_ABCDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDNBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBox)).EndInit();
             this.ResumeLayout(false);
 
         }

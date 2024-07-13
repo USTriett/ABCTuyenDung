@@ -17,9 +17,12 @@ namespace ABCTuyenDung
     public partial class MHDanhSachViTriTuyenDung : Form
     {
         public static BUSDoanhNhgiepAndPhieuDangTuyen bus = new BUSDoanhNhgiepAndPhieuDangTuyen();
-        public MHDanhSachViTriTuyenDung()
+
+        private int maUV;
+        public MHDanhSachViTriTuyenDung(int maUV)
         {
             InitializeComponent();
+            this.maUV = maUV;
         }
 
         public void StyleDataGridView(DataGridView dgv)
@@ -281,5 +284,13 @@ namespace ABCTuyenDung
             logoutLabel.BackColor = Color.Transparent;
         }
 
+        private void homeLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            //this.Close();
+            TrangChuUngVienGui trangChu = new TrangChuUngVienGui(maUV);
+            //dsTuyenDungGui.FormClosed += (s, args) => this.Close();
+            trangChu.ShowDialog(this);
+        }
     }
 }

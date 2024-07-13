@@ -37,13 +37,14 @@ namespace ABCTuyenDung
 
             if (BusUngVien.KiemTraThongTinDangNhap(tenDangNhap, matKhau))
             {
+                int maUV = BusUngVien.LayMaUngVien(tenDangNhap);
                 MessageBox.Show("Đăng nhập thành công với tư cách Ứng Viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 // Show new form
                 this.Hide();
-                // Form1 form1 = new Form1();
-                // form1.FormClosed += (s, args) => this.Close();
-                // form1.Show();
+                TrangChuUngVienGui form1 = new TrangChuUngVienGui(maUV);
+                form1.FormClosed += (s, args) => this.Close();
+                form1.Show();
 
                 return;
             }
@@ -54,10 +55,10 @@ namespace ABCTuyenDung
 
                 // Show new form
                 this.Hide();
-                // Form1 form1 = new Form1();
-                // form1.FormClosed += (s, args) => this.Close();
-                // form1.Show();
-                
+                TrangChuDoanhNghiepGui form1 = new TrangChuDoanhNghiepGui();
+                form1.FormClosed += (s, args) => this.Close();
+                form1.Show();
+
                 return;
             }
 
