@@ -119,6 +119,7 @@ namespace ABCTuyenDung
             this.dangKyThanhVienUngVienLinkButton.TabIndex = 7;
             this.dangKyThanhVienUngVienLinkButton.TabStop = true;
             this.dangKyThanhVienUngVienLinkButton.Text = "Đăng ký thành viên ứng viên";
+            this.dangKyThanhVienUngVienLinkButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.dangKyThanhVienUngVienLinkButton_LinkClicked);
             // 
             // dangKyThanhVienDoanhNghiepLinkButton
             // 

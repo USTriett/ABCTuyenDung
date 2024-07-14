@@ -35,5 +35,15 @@ namespace ABCTuyenDung.BUS
             DTOUngVien ungVien = DAOUngVien.LayUngVienBangSDT(sdt);
             return ungVien.MaUV;
         }
+
+        public static bool DangKyUngVien(DTOUngVien ungVien)
+        {
+            return DAOUngVien.ThemUngVien(ungVien);
+        }
+
+        public static bool KiemTraUngVienTonTai(DTOUngVien ungVien)
+        {
+            return DAOUngVien.KiemTraUngVienTonTai(ungVien.Sdt);
+        }
     }
 }

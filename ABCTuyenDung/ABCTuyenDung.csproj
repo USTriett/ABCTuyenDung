@@ -157,6 +157,12 @@
     <Compile Include="GUIDangKyThanhVienDoanhNghiep.Designer.cs">
       <DependentUpon>GUIDangKyThanhVienDoanhNghiep.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIDangKyThanhVienUngVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIDangKyThanhVienUngVien.Designer.cs">
+      <DependentUpon>GUIDangKyThanhVienUngVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUIDangKyThanhVienDoanhNghiep.resx">
       <DependentUpon>GUIDangKyThanhVienDoanhNghiep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIDangKyThanhVienUngVien.resx">
+      <DependentUpon>GUIDangKyThanhVienUngVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIDangNhap.resx">
       <DependentUpon>GUIDangNhap.cs</DependentUpon>

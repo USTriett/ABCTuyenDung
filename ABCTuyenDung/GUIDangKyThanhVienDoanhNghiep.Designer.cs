@@ -196,7 +196,7 @@ namespace ABCTuyenDung
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(106, 16);
             this.label9.TabIndex = 16;
-            this.label9.Text = "Đã có mật khẩu?";
+            this.label9.Text = "Đã có tài khoản?";
             // 
             // dangNhapLinkLabel
             // 

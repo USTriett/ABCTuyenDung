@@ -91,5 +91,50 @@ namespace ABCTuyenDung.DAOs
             return null;
            
         }
+
+        public static bool ThemUngVien(DTOUngVien ungVien)
+        {
+            string query = @"
+            INSERT INTO UNGVIEN(HOTEN, SDT, NGAYSINH, DIACHI, EMAIL, KQKD, MATKHAU)
+            VALUES (@TenUV, @Sdt, @NgaySinh, @DiaChi, @Email, @Kqkd, @MatKhau)";
+
+            using (SqlConnection sqlconn = new SqlConnection(connectionString))
+            {
+                sqlconn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, sqlconn))
+                {
+                    cmd.Parameters.AddWithValue("@TenUV", ungVien.HoTen);
+                    cmd.Parameters.AddWithValue("@DiaChi", ungVien.DiaChi);
+                    cmd.Parameters.AddWithValue("@Email", ungVien.Email);
+                    cmd.Parameters.AddWithValue("@NgaySinh", ungVien.NgaySinh);
+                    cmd.Parameters.AddWithValue("@Kqkd", ungVien.Kqkd);
+                    cmd.Parameters.AddWithValue("@Sdt", ungVien.Sdt);
+                    cmd.Parameters.AddWithValue("@MatKhau", ungVien.MatKhau);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+        }
+
+         public static bool KiemTraUngVienTonTai(string sdt)
+        {
+            string query = @"
+            SELECT COUNT(*)
+            FROM UNGVIEN
+            WHERE SDT = @Sdt";
+
+            using (SqlConnection sqlconn = new SqlConnection(connectionString))
+            {
+                sqlconn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, sqlconn))
+                {
+                    cmd.Parameters.AddWithValue("@Sdt", sdt);
+
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
     }
 }

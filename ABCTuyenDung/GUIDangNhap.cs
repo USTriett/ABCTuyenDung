@@ -93,5 +93,13 @@ namespace ABCTuyenDung
             DAODoanhNghiep.Initialize(conn);
             DAONhanVien.Initialize(conn);
         }
+
+        private void dangKyThanhVienUngVienLinkButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            GUIDangKyThanhVienUngVien dangKyThanhVienUngVienGUI = new GUIDangKyThanhVienUngVien();
+            dangKyThanhVienUngVienGUI.FormClosed += (s, args) => this.Close();
+            dangKyThanhVienUngVienGUI.Show();
+        }
     }
 }
