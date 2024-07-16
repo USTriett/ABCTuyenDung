@@ -28,5 +28,10 @@ namespace ABCTuyenDung
             dsTuyenDungGui.ShowDialog(this);
 
         }
+
+        private void TrangChuUngVienGui_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace ABCTuyenDung.DTOs
 {
     public class DTOPhieuDangTuyenAndDoanhNghiep
     {
+        public int maDN { get; set; }
         public string tenDN { get; set; }
         public string nguoiDaiDien { get; set; }
         public string maPhieuDT { get; set; }

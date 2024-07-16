@@ -20,6 +20,10 @@ namespace ABCTuyenDung.BUS
 
             return _dTODoanhNghiep;
         }
+        public static int GetId(string email)
+        {
+            return DAODoanhNghiep.LayDoanhNghiepBangEmail(email).MaDN;
+        }
 
         public static int GetMaDN(int id)
         {
@@ -98,6 +102,7 @@ namespace ABCTuyenDung.BUS
             }
             return false;
         }
+
         public static bool DangKyDoanhNghiep(DTODoanhNghiep doanhNghiep)
         {
             return DAODoanhNghiep.ThemDoanhNghiep(doanhNghiep);

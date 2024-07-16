@@ -31,10 +31,9 @@ namespace ABCTuyenDung.BUS
         public static int getMaxID()
         {
             int max = 0;
-            foreach (var hs in dTOHoSoBangCaps) { 
-                if(max < hs.MaHSBC) {  max = hs.MaHSBC; }
-            }
-            return max;
+
+            max = DAOs.DAOHoSoBangCap.LayMaxID();
+            return max + 10;
         }
         public static void LayDanhSachHSBC(int maUV)
         {

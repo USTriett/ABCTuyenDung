@@ -24,43 +24,47 @@ namespace ABCTuyenDung.DAOs
                 // Tạo đối tượng SqlConnection
                 using (SqlConnection sqlCon = new SqlConnection(connString))
                 {
-                    // Tạo đối tượng SqlCommand
-                    SqlCommand sqlCommand = new SqlCommand("" +
-                        "SELECT PDT.MAPHIEUDT, DN.TENDN, VITRITD, DN.NGUOIDAIDIEN, PDT.SOLUONG, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN " +
-                        "FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON DN.MADN = PDT.MADN " +
-                        "WHERE TINHTRANGTHANHTOAN = 1 AND (VITRITD LIKE '%" + key + "%' OR DN.TENDN LIKE '%" + key + "%')"
-                        , sqlCon);
                     // Mở kết nối
                     sqlCon.Open();
-                    // Thực hiện câu lệnh và lấy SqlDataReader
-                    SqlDataReader reader = sqlCommand.ExecuteReader();
-                    // Kiểm tra nếu có hàng nào được trả về
-                    if (reader.HasRows)
+
+                    // Tạo đối tượng SqlCommand với truy vấn tham số trong khối using
+                    using (SqlCommand sqlCommand = new SqlCommand(
+                        "SELECT PDT.MAPHIEUDT, DN.TENDN, VITRITD, DN.NGUOIDAIDIEN, PDT.SOLUONG, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN " +
+                        "FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON DN.MADN = PDT.MADN " +
+                        "WHERE TINHTRANGTHANHTOAN = 1 AND (VITRITD LIKE @key OR DN.TENDN LIKE @key)", sqlCon))
                     {
-                        // Đọc từng hàng
-                        while (reader.Read())
+                        // Thêm tham số vào SqlCommand
+                        sqlCommand.Parameters.AddWithValue("@key", "%" + key + "%");
+
+                        // Thực hiện câu lệnh và lấy SqlDataReader trong khối using
+                        using (SqlDataReader reader = sqlCommand.ExecuteReader())
                         {
-                            // Lấy dữ liệu từ từng cột
-                            DTOPhieuDangTuyenAndDoanhNghiep dao = new DTOPhieuDangTuyenAndDoanhNghiep
+                            // Kiểm tra nếu có hàng nào được trả về
+                            if (reader.HasRows)
                             {
-                                maPhieuDT = reader["MAPHIEUDT"].ToString(),
-                                tenDN = reader["TENDN"].ToString(),
-                                nguoiDaiDien = reader["NGUOIDAIDIEN"].ToString(),
-                                viTriTD = reader["VITRITD"].ToString(),
-                                ngayHetHan = Convert.ToDateTime(reader["NGAYHETHAN"]),
-                                soLuong = int.Parse(reader["SOLUONG"].ToString())
-                            };
-                            list.Add(dao);
+                                // Đọc từng hàng
+                                while (reader.Read())
+                                {
+                                    // Lấy dữ liệu từ từng cột
+                                    DTOPhieuDangTuyenAndDoanhNghiep dao = new DTOPhieuDangTuyenAndDoanhNghiep
+                                    {
+                                        maPhieuDT = reader["MAPHIEUDT"].ToString(),
+                                        tenDN = reader["TENDN"].ToString(),
+                                        nguoiDaiDien = reader["NGUOIDAIDIEN"].ToString(),
+                                        viTriTD = reader["VITRITD"].ToString(),
+                                        ngayHetHan = Convert.ToDateTime(reader["NGAYHETHAN"]),
+                                        soLuong = int.Parse(reader["SOLUONG"].ToString())
+                                    };
+                                    list.Add(dao);
+                                }
+                            }
                         }
                     }
-                    reader.Dispose();
-                    sqlCon.Dispose();
-                    sqlCommand.Dispose();
                 }
+
             }
         }
-
-        public List<DTOPhieuDangTuyenAndDoanhNghiep> findAll()
+            public List<DTOPhieuDangTuyenAndDoanhNghiep> findAll()
         {
             List<DTOPhieuDangTuyenAndDoanhNghiep> list = new List<DTOPhieuDangTuyenAndDoanhNghiep>();
             string connString = ConfigurationManager.ConnectionStrings["ABCTuyenDung.Properties.Settings.CTY_ABCConnectionString"]?.ConnectionString;

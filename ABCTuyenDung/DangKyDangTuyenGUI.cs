@@ -18,6 +18,7 @@ namespace ABCTuyenDung
         private IDatePicker _startDate;
         private IDatePicker _endDate;
         private SqlConnection _dbConnector;
+        private int _maDN;
         private Dictionary<string, string> _fields = new Dictionary<string, string>();
         //private 
         private PopupNotifier _notifier;
@@ -25,8 +26,9 @@ namespace ABCTuyenDung
         private PhieuQuangCaoGUI _phieuQuangCaoGUI;
 
 
-        public DangKyDangTuyenGUI()
+        public DangKyDangTuyenGUI(int id)
         {
+            _maDN = id;
              _startDate = new IDatePicker();
              _endDate = new IDatePicker();
             DateTime tomorrow = DateTime.Now.Date.AddDays(1);
@@ -110,12 +112,13 @@ namespace ABCTuyenDung
             GetAllFields();
             if (CheckValidForm())
             {
-                _phieuQuangCaoGUI = new PhieuQuangCaoGUI(_dbConnector);
-                _phieuQuangCaoGUI.AddClosingListener(SetActive);
+                _phieuQuangCaoGUI = new PhieuQuangCaoGUI(_dbConnector, _maDN);
+                //_phieuQuangCaoGUI.AddClosingListener(SetActive);
                 _fields["price"] = CalculatePrice().ToString();
                 _phieuQuangCaoGUI.FillForm(_fields);
-                this.Hide();
                 _phieuQuangCaoGUI.Show();
+                this.Close();
+
             }
             else
             {

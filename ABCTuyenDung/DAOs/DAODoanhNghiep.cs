@@ -59,7 +59,7 @@ namespace ABCTuyenDung.DAOs
 
         public static DTODoanhNghiep LayDoanhNghiepBangEmail(string email)
         {
-            string query = "SELECT EMAIL, MATKHAU FROM DOANHNGHIEP WHERE EMAIL = @email";
+            string query = "SELECT MaDN, EMAIL, MATKHAU FROM DOANHNGHIEP WHERE EMAIL = @email";
             using (SqlConnection sqlconn = new SqlConnection(connectionString))
             {
                 sqlconn.Open();
@@ -73,8 +73,9 @@ namespace ABCTuyenDung.DAOs
                         {
                             return new DTODoanhNghiep
                             {
-                                Email = reader.GetString(0),
-                                MatKhau = reader.GetString(1)
+                                MaDN = reader.GetInt32(0),
+                                Email = reader.GetString(1),
+                                MatKhau = reader.GetString(2)
                             };
                         }
                     }

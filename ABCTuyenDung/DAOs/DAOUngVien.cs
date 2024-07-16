@@ -14,6 +14,7 @@ namespace ABCTuyenDung.DAOs
         public static DTOUngVien Lay(int maUV)
         {
             DTOUngVien ungVien = null;
+        
 
             string query = "SELECT * FROM UngVien WHERE MaUV = @MaUV";
 
@@ -32,13 +33,13 @@ namespace ABCTuyenDung.DAOs
                             ungVien = new DTOUngVien
                             {
                                 MaUV = maUV,
-                                HoTen = reader.GetString(1),
-                                GioiTinh = reader.GetString(2),
-                                Sdt = reader.GetString(3),
-                                NgaySinh = reader.GetDateTime(4),
-                                DiaChi = reader.GetString(5),
-                                Email = reader.GetString(6),
-                                Kqkd = reader.GetBoolean(7)
+                                HoTen = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                                GioiTinh = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                                Sdt = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                                NgaySinh = reader.IsDBNull(4) ? DateTime.Now : reader.GetDateTime(4),
+                                DiaChi = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                                Email = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                                Kqkd = reader.IsDBNull(7) ? false : reader.GetBoolean(7)
                             };
                             return ungVien;
                         }
@@ -66,7 +67,7 @@ namespace ABCTuyenDung.DAOs
 
         public static DTOUngVien LayUngVienBangSDT(string sdt)
         {
-            string query = "SELECT SDT, MATKHAU FROM UNGVIEN WHERE SDT = @sdt";
+            string query = "SELECT MaUV, SDT, MATKHAU FROM UNGVIEN WHERE SDT = @sdt";
           
                 using (SqlConnection sqlconn = new SqlConnection(connectionString))
                 {
@@ -81,8 +82,9 @@ namespace ABCTuyenDung.DAOs
                             {
                                 return new DTOUngVien
                                 {
-                                    Sdt = reader.GetString(0),
-                                    MatKhau = reader.GetString(1)
+                                    MaUV = reader.GetInt32(0),
+                                    Sdt = reader.GetString(1),
+                                    MatKhau = reader.GetString(2)
                                 };
                             }
                         }

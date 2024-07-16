@@ -1,4 +1,5 @@
 ﻿using ABCTuyenDung.BUS;
+using ABCTuyenDung.DAOs;
 using ABCTuyenDung.DTOs;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace ABCTuyenDung
         {
             InitializeComponent();
             this.maUV = maUV;
+            Console.WriteLine("muv = " + maUV);
+            danhSachTD.CellClick += new DataGridViewCellEventHandler(OnCellClickHandler);
         }
 
         public void StyleDataGridView(DataGridView dgv)
@@ -84,10 +87,12 @@ namespace ABCTuyenDung
                 {
                     sqlCon.Open();
                     // Tạo đối tượng SqlCommand
-                    SqlDataAdapter sqlDataAdapter = bus.layDanhSachViTriTD("SELECT TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1;", sqlCon);
+                    SqlDataAdapter sqlDataAdapter = bus.layDanhSachViTriTD("SELECT DN.MADN, TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1;", sqlCon);
+                    
                     DataTable table = new DataTable();
                     sqlDataAdapter.Fill(table);
                     danhSachTD.DataSource = table;
+                    
                     StyleDataGridView(danhSachTD);
                 }
             }
@@ -106,11 +111,23 @@ namespace ABCTuyenDung
                 {
                     searchResultControl res = new searchResultControl();
                     res.setDataFromDTO(DTOPhieuDangTuyenAndDoanhNghiep.list[i]);
+                    int mdn = res.maDoanhNghiep;
+                    string mptd = res.maPhieuDangTuyen;
+                    res.Click += OnClickHandle;
                     resultContainer.Controls.Add(res);
                 }
                 else break;
             }
             
+        }
+
+        private void OnClickHandle(object sender, EventArgs e)
+        {
+           searchResultControl searchControl = (searchResultControl) sender;
+            TuyenDungGUI tuyenDungGUI = new TuyenDungGUI(maUV,searchControl.maDoanhNghiep,
+                int.Parse(searchControl.maPhieuDangTuyen));
+            tuyenDungGUI.Show();
+      
         }
 
         private void textSearch_TextChanged(object sender, EventArgs e)
@@ -201,7 +218,7 @@ namespace ABCTuyenDung
                     {
                         sqlCon.Open();
                         // Tạo đối tượng SqlCommand
-                        SqlDataAdapter sqlAdapter = bus.layDanhSachViTriTD("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1 AND (VITRITD LIKE '%" + key + "%' OR DN.TENDN LIKE '%" + key + "%')", sqlCon);
+                        SqlDataAdapter sqlAdapter = bus.layDanhSachViTriTD("SELECT DN.MADN, DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1 AND (VITRITD LIKE '%" + key + "%' OR DN.TENDN LIKE '%" + key + "%')", sqlCon);
                         DataTable table = new DataTable();
                         sqlAdapter.Fill(table);
                         danhSachTD.DataSource = table;
@@ -213,7 +230,7 @@ namespace ABCTuyenDung
                     {
                         sqlCon.Open();
                         // Tạo đối tượng SqlCommand
-                        SqlDataAdapter sqlAdapter = bus.layDanhSachViTriTD("SELECT DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1", sqlCon);
+                        SqlDataAdapter sqlAdapter = bus.layDanhSachViTriTD("SELECT DN.MADN, DN.TENDN, DN.NGUOIDAIDIEN, PDT.MAPHIEUDT, PDT.VITRITD, (PDT.NGAYDBDT + PDT.THOIGIANDT) AS NGAYHETHAN FROM PHIEUDANGTUYEN PDT JOIN DOANHNGHIEP DN ON PDT.MADN = DN.MADN WHERE TINHTRANGTHANHTOAN = 1", sqlCon);
                         DataTable table = new DataTable();
                         sqlAdapter.Fill(table);
                         danhSachTD.DataSource = table;
@@ -228,6 +245,27 @@ namespace ABCTuyenDung
                 MessageBox.Show("Không tải được danh sách vị trí tuyển dụng. Vui lòng thử lại sau!");
                 return;
             }
+        }
+
+        private void OnCellClickHandler(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            
+                // Check if the click is on a valid cell (not the header or out of bounds)
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                {
+                    // Get the entire row
+                    DataGridViewRow row = danhSachTD.Rows[e.RowIndex];
+
+                // Retrieve data from the row
+                string madn = row.Cells["MADN"].Value.ToString();
+                string maPhieuDT = row.Cells["MAPHIEUDT"].Value.ToString();
+                
+                TuyenDungGUI tuyenDungGUI = new TuyenDungGUI(maUV, int.Parse(madn), int.Parse(maPhieuDT));
+                 tuyenDungGUI.Show();
+                }
+                
+            
         }
 
         private void label1_Click(object sender, EventArgs e)

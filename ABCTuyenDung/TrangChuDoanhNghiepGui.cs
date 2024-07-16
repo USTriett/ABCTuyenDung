@@ -12,14 +12,16 @@ namespace ABCTuyenDung
 {
     public partial class TrangChuDoanhNghiepGui : Form
     {
-        public TrangChuDoanhNghiepGui()
+        private string email;
+        public TrangChuDoanhNghiepGui(string email)
         {
+            this.email = email;
             InitializeComponent();
         }
 
         private void recruitLabel_Click(object sender, EventArgs e)
         {
-            var trangChuUC = new TrangChuDoanhNghiepUserControl();
+            var trangChuUC = new TrangChuDoanhNghiepUserControl(email);
             panel1.Controls.Add(trangChuUC);
         }
 

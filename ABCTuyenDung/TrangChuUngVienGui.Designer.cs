@@ -120,6 +120,7 @@
             this.Controls.Add(this.panel3);
             this.Name = "TrangChuUngVienGui";
             this.Text = "Trang chủ - Ứng viên";
+            this.Load += new System.EventHandler(this.TrangChuUngVienGui_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);

@@ -498,7 +498,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DangKyUngTuyenGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DangKyUngTuyenGUI";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.DangKyUngTuyenGUI_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

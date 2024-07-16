@@ -47,13 +47,14 @@ namespace ABCTuyenDung.DAOs
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 command.Parameters.AddWithValue("@MaPhieuDT", maPhieuDangTuyen);
-                
-                    SqlDataReader reader = command.ExecuteReader();
+
+                // Thực hiện câu lệnh và lấy SqlDataReader trong khối using
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
                     Console.WriteLine("reader create : " + reader.FieldCount);
 
                     if (reader.Read())
                     {
-                        
                         DTOPhieuDangTuyen dTOphieuDangTuyen = new DTOPhieuDangTuyen
                         {
                             MaPhieuDT = maPhieuDangTuyen,
@@ -76,9 +77,10 @@ namespace ABCTuyenDung.DAOs
                         return dTOphieuDangTuyen;
                     }
 
-                    reader.Close();
-                
-                
+                    // reader is closed and disposed of here automatically
+                }
+
+                // command is disposed of here automatically
             }
             return null;
         }

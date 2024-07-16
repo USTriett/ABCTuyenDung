@@ -23,8 +23,8 @@ namespace ABCTuyenDung.DAOs
                 {
                     string enableIdentityInsertQuery = "SET IDENTITY_INSERT HoSoBangCap ON";
                     string disableIdentityInsertQuery = "SET IDENTITY_INSERT HoSoBangCap OFF";
-                    string insertQuery = "INSERT INTO HoSoBangCap (MaHSBC, TenHSBC, LoaiHSBC, NgayCap, HieuLuc, DonViCap, MaUV, Url) " +
-                                         "VALUES (@MaHSBC, @TenHSBC, @LoaiHSBC, @NgayCap, @HieuLuc, @DonViCap, @MaUV, @Url)";
+                    string insertQuery = "INSERT INTO HoSoBangCap (MaHSBC, TenHSBC, LoaiHSBC, NgayCap, HieuLuc, DonViCap, MaUV, Url, XoaMem) " +
+                                         "VALUES (@MaHSBC, @TenHSBC, @LoaiHSBC, @NgayCap, @HieuLuc, @DonViCap, @MaUV, @Url, 0)";
 
                     try
                     {
@@ -119,7 +119,7 @@ namespace ABCTuyenDung.DAOs
             catch (Exception ex)
             {
                 // Handle exceptions appropriately
-                Console.WriteLine("Error: " + ex.Message);
+                MessageBox.Show("Khong the load " + ex);
             }
            
             finally
@@ -131,6 +131,43 @@ namespace ABCTuyenDung.DAOs
             }
 
             return hoSoBangCaps;
+        }
+
+        public static int LayMaxID()
+        {
+            try
+            {
+                if (_connection.State != System.Data.ConnectionState.Open)
+                    _connection.Open();
+
+                string query = "SELECT Count(*) FROM HoSoBangCap";
+
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                  
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions appropriately
+                MessageBox.Show("Khong the load " + ex);
+            }
+
+            finally
+            {
+                if (_connection.State == System.Data.ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+            return 0;
         }
     }
 }

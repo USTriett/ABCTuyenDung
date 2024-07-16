@@ -18,9 +18,10 @@ namespace ABCTuyenDung
         private IDatePicker _startDate;
         private IDatePicker _endDate;
         private SqlConnection _connection;
-        public PhieuQuangCaoGUI(SqlConnection sqlConnection)
+        private int _maDN;
+        public PhieuQuangCaoGUI(SqlConnection sqlConnection, int maDN)
         {
-
+            _maDN = maDN;
             _startDate = new IDatePicker();
             _endDate = new IDatePicker();
             InitializeComponent();
@@ -58,7 +59,7 @@ namespace ABCTuyenDung
             //
             DTOPhieuDangTuyen dTOPhieuDangTuyen = new DTOPhieuDangTuyen
             {
-                MaDN = 1,
+                MaDN = _maDN,
                 ViTriTD = viTriText.Text.ToString(),
                 SoLuong = int.Parse(soLuongText.Text.ToString()),
                 MoTaViTriTD = moTaText.Text.ToString(),

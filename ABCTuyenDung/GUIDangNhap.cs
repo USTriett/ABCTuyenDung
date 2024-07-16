@@ -55,7 +55,7 @@ namespace ABCTuyenDung
 
                 // Show new form
                 this.Hide();
-                TrangChuDoanhNghiepGui form1 = new TrangChuDoanhNghiepGui();
+                TrangChuDoanhNghiepGui form1 = new TrangChuDoanhNghiepGui(tenDangNhap);
                 form1.FormClosed += (s, args) => this.Close();
                 form1.Show();
 

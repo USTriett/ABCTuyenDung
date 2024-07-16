@@ -91,7 +91,7 @@ namespace ABCTuyenDung
 
         private void DangKyUngTuyenGUI_Load(object sender, EventArgs e)
         {
-
+                                                  
         }
 
         public void AddCloseEventListener(FormClosedEventHandler action)
@@ -216,7 +216,7 @@ namespace ABCTuyenDung
                     MaNV = 0,
 
                 };
-                
+                this.Enabled = false;
                 DTOHoSoBangCap[] hs = new DTOHoSoBangCap[imageUrls.Count];
                 for (int i = 0; i < hs.Length; i++)
                 {
@@ -249,7 +249,8 @@ namespace ABCTuyenDung
                     CheckBox b = (CheckBox)hoSoPanel.GetControlFromPosition(7, i + 1 + len);
                     if (b.Checked)
                     {
-                        maHSBCs.Add(BUS.BusHoSoBangCap.dTOHoSoBangCaps[i].MaHSBC);
+                        Console.WriteLine(i);
+                        maHSBCs.Add(hs[i].MaHSBC);
                     }
                 }
                 BUS.BusPhieuDangKyUngTuyen.ThemPhieu(dTOPhieuDangKyUngTuyen);
@@ -257,27 +258,24 @@ namespace ABCTuyenDung
                 BUS.BusHoSoBangCap.ThemNhieuHoSo(maUV, hs);
 
                 BUS.BusDkutHsbc.ThemHSBC(maHSBCs, id);
-
+                this.Enabled = true;
             }
+            else
+            {
+                MessageBox.Show("Unvalid");
+            }
+
+            this.Close();
             
         }
 
         private bool IsValid()
         {
             bool isValid = true;
-            foreach (Control control in controlsHolder)
+            if (moTaText.Text == string.Empty)
             {
 
-                //Console.WriteLine(control.Name + ": " + control.Text);
-                if (control.Text.CompareTo("") == 0)
-                {
-                    isValid = false;
-                    if(control is Guna2TextBox)
-                        ((Guna2TextBox)control).BorderColor = Color.Red;
-                    if(control is Guna2ComboBox)
-                        ((Guna2ComboBox)control).BorderColor = Color.Red;
-
-                }
+                isValid = false; 
             }
             return isValid;
         }

@@ -70,10 +70,12 @@ namespace ABCTuyenDung.DAOs
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        if (reader.Read())
+                        
+                        if (reader != null && reader.Read())
                         {
                             id = reader.GetInt32(0); // Assuming the ID column is the first column
                         }
+
                     }
                 }
             }

@@ -15,12 +15,13 @@ namespace ABCTuyenDung
     {
         private int _id = 1;
         private int _maPhieuDangTuyen;
-
+        private int mauv;
         private DangKyUngTuyenGUI dangKyUngTuyenGUI;
-        public TuyenDungGUI(int idDoanhNghiep, int maPhieuDangTuyen)
+        public TuyenDungGUI(int maUV, int idDoanhNghiep, int maPhieuDangTuyen)
         {
             _id = idDoanhNghiep;
             _maPhieuDangTuyen = maPhieuDangTuyen;
+            mauv = maUV;
             InitializeComponent();
             LoadDoanhNghiepData();
             LoadThongTinCongViec();
@@ -116,17 +117,14 @@ namespace ABCTuyenDung
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            this.Enabled = false;
             
-            dangKyUngTuyenGUI = new DangKyUngTuyenGUI(1, _maPhieuDangTuyen);
-            dangKyUngTuyenGUI.AddCloseEventListener(Enable);
+            
+            dangKyUngTuyenGUI = new DangKyUngTuyenGUI(mauv, _maPhieuDangTuyen);
+            
             dangKyUngTuyenGUI.Show();
+            this.Close();
         }
 
-        private void Enable(object sender, FormClosedEventArgs e)
-        {
-            this.Enabled = true;
-
-        }
+       
     }
 }
