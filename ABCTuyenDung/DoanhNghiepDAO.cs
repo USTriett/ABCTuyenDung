@@ -17,7 +17,7 @@ namespace ABCTuyenDung
             List<DoanhNghiepDTO> DoanhNghiep = new List<DoanhNghiepDTO>();
             using (SqlConnection sqlconn = new SqlConnection(conn))
             {
-                SqlCommand cmd = new SqlCommand("select * from DSDN", sqlconn);
+                SqlCommand cmd = new SqlCommand("select * from DOANHNGHIEP", sqlconn);
                 sqlconn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -39,7 +39,7 @@ namespace ABCTuyenDung
             List<DoanhNghiepDTO> DoanhNghiep = new List<DoanhNghiepDTO>();
             using (SqlConnection sqlconn = new SqlConnection(conn))
             {
-                SqlCommand cmd = new SqlCommand("select * from DSDN_HETHAN", sqlconn);
+                SqlCommand cmd = new SqlCommand("select * from DOANHNGHIEP where NGAYHETHAN <= DATEADD(day, 7, GETDATE())", sqlconn);
                 sqlconn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
